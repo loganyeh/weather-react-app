@@ -1,4 +1,5 @@
-import logo from "../weather-app-main/assets/images/logo.svg";
+import { bgTodayLarge, bgTodaySmall, favicon, checkmark, drizzle, dropdown, error, fog,
+    loading, overcast, partlyCloudy, rain, retry, search, snow, storm, sunny, units, logo } from "../assets/images";
 
 function Home(){
 
