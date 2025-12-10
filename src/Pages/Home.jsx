@@ -47,18 +47,145 @@ function Home(){
                 {/* CITY STATE TEMPERATURE */}
                 <div className="grid grid-rows-6 grid-cols-5 row-start-4 row-end-8 col-start-2 col-end-10 border-2 border-red-600">
                     <h1 className="flex items-end pl-2 pb-2 row-start-2 row-end-4 col-start-1 col-end-3 text-2xl border-2 border-red-600">Berlin, Germany</h1>
-                    <h2 className="flex justify-start pl-2 pt-2 row-start-4 row-end-6 col-start-1 col-end-3 text-lg border-2 border-red-600">Tuesday. Aug 5, 2025</h2>
+                    <h2 className="flex justify-start pl-2 pt-2 row-start-4 row-end-6 col-start-1 col-end-3 text-md border-2 border-red-600">Tuesday. Aug 5, 2025</h2>
                     <img className="h-full w-full row-start-2 row-end-6 col-start-4 col-end-5 border-2 border-red-600 object-contain" src={sunny} alt="weather-img" />
                     <h1 className="h-full w-full flex justify-center items-center row-start-2 row-end-6 col-start-5 col-end-6 text-9xl border-2 border-red-600">20°</h1>
                 </div>
 
 
+                {/* CITY STATE WEATHER DETAILS */}
+                <div className="flex justify-between row-start-8 row-end-10 col-start-2 col-end-10 border-2 border-red-600">
+                    <div className="h-full w-72 border-2 border-red-600">
+                        <h3 className="flex items-center pl-2 h-1/2 w-full text-lg border-2 border-black">Feels Like</h3>
+                        <h3 className="flex items-center pl-2 h-1/2 w-full text-3xl border-2 border-black">18°</h3>
+                    </div>
 
-                <div className="row-start-8 row-end-10 col-start-2 col-end-10 border-2 border-red-600">Feels Like</div>
+
+                    <div className="h-full w-72 border-2 border-red-600">
+                        <h3 className="flex items-center pl-2 h-1/2 w-full text-lg border-2 border-black">Humidity</h3>
+                        <h3 className="flex items-center pl-2 h-1/2 w-full text-3xl border-2 border-black">46%</h3>
+                    </div>
 
 
+                    <div className="h-full w-72 border-2 border-red-600">
+                        <h3 className="flex items-center pl-2 h-1/2 w-full text-lg border-2 border-black">Wind</h3>
+                        <h3 className="flex items-center pl-2 h-1/2 w-full text-3xl border-2 border-black">14 km/h</h3>
+                    </div>
 
-                <div className="row-start-10 row-end-13 col-start-2 col-end-10 border-2 border-red-600">Daily Forecast</div>
+
+                    <div className="h-full w-72 border-2 border-red-600">
+                        <h3 className="flex items-center pl-2 h-1/2 w-full text-lg border-2 border-black">Precipitation</h3>
+                        <h3 className="flex items-center pl-2 h-1/2 w-full text-3xl border-2 border-black">0 mm</h3>
+                    </div>
+                </div>
+
+
+                {/* DAILY FORECAST */}
+                <div className="flex flex-col justify-around row-start-10 row-end-13 col-start-2 col-end-10 border-2 border-red-600">
+                    <h4 className="h-1/12 w-full text-lg border-2 border-red-600">Daily Forecast</h4>
+
+                    <div className="h-10/12 w-full flex justify-between items-end border-2 border-purple-600">
+                        
+                        {/* 1 */}
+                        <div className="h-full w-40 border-2 border-black">
+                            <div className="h-1/4 w-full border-2 border-red-600">
+                                <h4 className="h-full w-full flex justify-center items-center text-xl">Tue</h4>
+                            </div>
+                            <div className="h-2/4 w-full border-2 border-red-600">
+                                <img className="h-full w-full object-contain" src={rain} alt="" />
+                            </div>
+                            <div className="h-1/4 w-full flex justify-between items-center border-2 border-red-600">
+                                <h5 className="m-2 text-lg border-2 border-blue-600">20°</h5>
+                                <h5 className="m-2 text-lg border-2 border-blue-600">14°</h5>
+                            </div>
+                        </div>
+
+                        {/* 2 */}
+                        <div className="h-full w-40 border-2 border-black">
+                            <div className="h-1/4 w-full border-2 border-red-600">
+                                <h4 className="h-full w-full flex justify-center items-center text-xl">Wed</h4>
+                            </div>
+                            <div className="h-2/4 w-full border-2 border-red-600">
+                                <img className="h-full w-full object-contain" src={drizzle} alt="" />
+                            </div>
+                            <div className="h-1/4 w-full flex justify-between items-center border-2 border-red-600">
+                                <h5 className="m-2 text-lg border-2 border-blue-600">21°</h5>
+                                <h5 className="m-2 text-lg border-2 border-blue-600">15°</h5>
+                            </div>
+                        </div>
+
+                        {/* 3 */}
+                        <div className="h-full w-40 border-2 border-black">
+                            <div className="h-1/4 w-full border-2 border-red-600">
+                                <h4 className="h-full w-full flex justify-center items-center text-xl">Thu</h4>
+                            </div>
+                            <div className="h-2/4 w-full border-2 border-red-600">
+                                <img className="h-full w-full object-contain" src={sunny} alt="" />
+                            </div>
+                            <div className="h-1/4 w-full flex justify-between items-center border-2 border-red-600">
+                                <h5 className="m-2 text-lg border-2 border-blue-600">24°</h5>
+                                <h5 className="m-2 text-lg border-2 border-blue-600">14°</h5>
+                            </div>
+                        </div>
+
+                        {/* 4 */}
+                        <div className="h-full w-40 border-2 border-black">
+                            <div className="h-1/4 w-full border-2 border-red-600">
+                                <h4 className="h-full w-full flex justify-center items-center text-xl">Fri</h4>
+                            </div>
+                            <div className="h-2/4 w-full border-2 border-red-600">
+                                <img className="h-full w-full object-contain" src={partlyCloudy} alt="" />
+                            </div>
+                            <div className="h-1/4 w-full flex justify-between items-center border-2 border-red-600">
+                                <h5 className="m-2 text-lg border-2 border-blue-600">25°</h5>
+                                <h5 className="m-2 text-lg border-2 border-blue-600">13°</h5>
+                            </div>
+                        </div>
+
+                        {/* 5 */}
+                        <div className="h-full w-40 border-2 border-black">
+                            <div className="h-1/4 w-full border-2 border-red-600">
+                                <h4 className="h-full w-full flex justify-center items-center text-xl">Sat</h4>
+                            </div>
+                            <div className="h-2/4 w-full border-2 border-red-600">
+                                <img className="h-full w-full object-contain" src={storm} alt="" />
+                            </div>
+                            <div className="h-1/4 w-full flex justify-between items-center border-2 border-red-600">
+                                <h5 className="m-2 text-lg border-2 border-blue-600">21°</h5>
+                                <h5 className="m-2 text-lg border-2 border-blue-600">15°</h5>
+                            </div>
+                        </div>
+
+                        {/* 6 */}
+                        <div className="h-full w-40 border-2 border-black">
+                            <div className="h-1/4 w-full border-2 border-red-600">
+                                <h4 className="h-full w-full flex justify-center items-center text-xl">Sun</h4>
+                            </div>
+                            <div className="h-2/4 w-full border-2 border-red-600">
+                                <img className="h-full w-full object-contain" src={snow} alt="" />
+                            </div>
+                            <div className="h-1/4 w-full flex justify-between items-center border-2 border-red-600">
+                                <h5 className="m-2 text-lg border-2 border-blue-600">25°</h5>
+                                <h5 className="m-2 text-lg border-2 border-blue-600">16°</h5>
+                            </div>
+                        </div>
+
+                        {/* 7 */}
+                        <div className="h-full w-40 border-2 border-black">
+                            <div className="h-1/4 w-full border-2 border-red-600">
+                                <h4 className="h-full w-full flex justify-center items-center text-xl">Mon</h4>
+                            </div>
+                            <div className="h-2/4 w-full border-2 border-red-600">
+                                <img className="h-full w-full object-contain" src={fog} alt="" />
+                            </div>
+                            <div className="h-1/4 w-full flex justify-between items-center border-2 border-red-600">
+                                <h5 className="m-2 text-lg border-2 border-blue-600">24°</h5>
+                                <h5 className="m-2 text-lg border-2 border-blue-600">15°</h5>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
 
 
                 {/* HOURLY FORECAST */}
