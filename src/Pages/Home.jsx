@@ -7,7 +7,6 @@ function Home(){
     const [isSearchDropdown, setIsSearchDropdown] = useState(false);
     const [isHourlyForecastDropdown, setIsHourlyForecastDropdown] = useState(false);
 
-
     return(
         <>
             <div id="home-page-borders" className="h-screen w-screen grid grid-rows-12 grid-cols-12 font-mono border-2 border-red-600">
@@ -20,7 +19,7 @@ function Home(){
 
                 {/* UNITS */}
                 <div className="row-start-1 row-end-2 col-start-11 col-end-12 border-2 border-red-600">
-                    <h2 className="h-full w-full flex justify-center items-center">⚙️ Units</h2>
+                    <h2 className="h-full w-full flex justify-center items-center hover:bg-gray-300 active:bg-gray-200 cursor-pointer">⚙️ Units \/</h2>
                 </div>
 
                 {/* UNITS DROP DOWN */}
@@ -189,7 +188,103 @@ function Home(){
 
 
                 {/* HOURLY FORECAST */}
-                <div className="row-start-4 row-end-13 col-start-10 col-end-12 border-2 border-red-600">Hourly Forecast</div>
+                <div className="flex flex-col row-start-4 row-end-13 col-start-10 col-end-12 border-2 border-red-600">
+
+                    {/* ONE HOUR BLOCK */}
+                    <div className="h-24 w-full flex border-2 border-red-600">
+                        <h3 className="h-full w-2/3 flex justify-start items-center border-2 border-red-600">Hourly Forecast</h3>
+                        <h3 className="h-full w-1/3 flex justify-end items-center border-2 border-red-600 hover:bg-gray-300 active:bg-gray-200 cursor-pointer">Tuesday \/</h3>
+                    </div>
+
+                    <div className="h-11/12 w-full flex flex-col justify-around border-2 border-black">
+
+                        {/* 1 */}
+                        <div className="h-18 w-full flex justify-between border-2 border-red-600">
+                            <div className="h-full w-1/2 flex border-2 border-red-600">
+                                <img className="h-full w-1/2 border-2 border-black object-contain" src={overcast} alt="" />
+                                <h4 className="h-full w-1/2 flex justify-center items-center text-xl border-2 border-black">3 PM</h4>
+                            </div>
+                            <h5 className="h-full w-1/4 flex justify-center items-center text-xl border-2 border-red-600">20°</h5>
+                        </div>
+
+
+                        {/* 2 */}
+                        <div className="h-18 w-full flex justify-between border-2 border-red-600">
+                            <div className="h-full w-1/2 flex border-2 border-red-600">
+                                <img className="h-full w-1/2 border-2 border-black object-contain" src={partlyCloudy} alt="" />
+                                <h4 className="h-full w-1/2 flex justify-center items-center text-xl border-2 border-black">4 PM</h4>
+                            </div>
+                            <h5 className="h-full w-1/4 flex justify-center items-center text-xl border-2 border-red-600">20°</h5>
+                        </div>
+                        
+
+                        {/* 3 */}
+                        <div className="h-18 w-full flex justify-between border-2 border-red-600">
+                            <div className="h-full w-1/2 flex border-2 border-red-600">
+                                <img className="h-full w-1/2 border-2 border-black object-contain" src={sunny} alt="" />
+                                <h4 className="h-full w-1/2 flex justify-center items-center text-xl border-2 border-black">5 PM</h4>
+                            </div>
+                            <h5 className="h-full w-1/4 flex justify-center items-center text-xl border-2 border-red-600">20°</h5>
+                        </div>
+
+
+                        {/* 4 */}
+                        <div className="h-18 w-full flex justify-between border-2 border-red-600">
+                            <div className="h-full w-1/2 flex border-2 border-red-600">
+                                <img className="h-full w-1/2 border-2 border-black object-contain" src={overcast} alt="" />
+                                <h4 className="h-full w-1/2 flex justify-center items-center text-xl border-2 border-black">6 PM</h4>
+                            </div>
+                            <h5 className="h-full w-1/4 flex justify-center items-center text-xl border-2 border-red-600">19°</h5>
+                        </div>
+
+
+                        {/* 5 */}
+                        <div className="h-18 w-full flex justify-between border-2 border-red-600">
+                            <div className="h-full w-1/2 flex border-2 border-red-600">
+                                <img className="h-full w-1/2 border-2 border-black object-contain" src={snow} alt="" />
+                                <h4 className="h-full w-1/2 flex justify-center items-center text-xl border-2 border-black">7 PM</h4>
+                            </div>
+                            <h5 className="h-full w-1/4 flex justify-center items-center text-xl border-2 border-red-600">18°</h5>
+                        </div>
+
+
+                        {/* 6 */}
+                        <div className="h-18 w-full flex justify-between border-2 border-red-600">
+                            <div className="h-full w-1/2 flex border-2 border-red-600">
+                                <img className="h-full w-1/2 border-2 border-black object-contain" src={fog} alt="" />
+                                <h4 className="h-full w-1/2 flex justify-center items-center text-xl border-2 border-black">8 PM</h4>
+                            </div>
+                            <h5 className="h-full w-1/4 flex justify-center items-center text-xl border-2 border-red-600">18°</h5>
+                        </div>
+
+
+                        {/* 7 */}
+                        <div className="h-18 w-full flex justify-between border-2 border-red-600">
+                            <div className="h-full w-1/2 flex border-2 border-red-600">
+                                <img className="h-full w-1/2 border-2 border-black object-contain" src={snow} alt="" />
+                                <h4 className="h-full w-1/2 flex justify-center items-center text-xl border-2 border-black">9 PM</h4>
+                            </div>
+                            <h5 className="h-full w-1/4 flex justify-center items-center text-xl border-2 border-red-600">17°</h5>
+                        </div>
+
+
+                        {/* 8 */}
+                        <div className="h-18 w-full flex justify-between border-2 border-red-600">
+                            <div className="h-full w-1/2 flex border-2 border-red-600">
+                                <img className="h-full w-1/2 border-2 border-black object-contain" src={overcast} alt="" />
+                                <h4 className="h-full w-1/2 flex justify-center items-center text-xl border-2 border-black">10 PM</h4>
+                            </div>
+                            <h5 className="h-full w-1/4 flex justify-center items-center text-xl border-2 border-red-600">17°</h5>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+
                 {/* HOURLY FORECAST DROPDOWN */}
                 <div className="hidden ow-start-5 row-end-9 col-start-10 col-end-12 border-4 border-purple-600"></div>
 
