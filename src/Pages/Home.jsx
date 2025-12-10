@@ -1,5 +1,6 @@
 import { bgTodayLarge, bgTodaySmall, favicon, checkmark, drizzle, dropdown, error, fog,
     loading, overcast, partlyCloudy, rain, retry, search, snow, storm, sunny, units, logo } from "../assets/images";
+import { neutral900, neutral800, neutral700, neutral600, neutral300, neutral200, neutral0, orange500, blue500, blue700 } from '../assets/colors.js';
 import { useState } from "react";
 
 function Home(){
