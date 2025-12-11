@@ -13,12 +13,11 @@ function Home(){
     }
 
     function handleIsSearchDropdown() {
-        setIsSearchDropdown(prev => !prev);
+        // setIsSearchDropdown(prev => !prev);
     }
 
     function handleIsHourlyForecastDropdown() {
-        console.log('hourly forecast clicked');
-        setIsHourlyForecastDropdown(prev => prev = !prev);
+        // setIsHourlyForecastDropdown(prev => prev = !prev);
     }
 
     function handleCloseDropdowns() {
@@ -34,7 +33,7 @@ function Home(){
 
     return(
         <>
-            <div id="home-page-borders" className="h-screen w-screen grid grid-rows-12 grid-cols-12 text-white font-sans" style={{backgroundColor: colors.neutral900}}>
+            <div id="home-page-borders" className="h-screen w-screen grid grid-rows-12 grid-cols-12 text-white font-mono" style={{backgroundColor: colors.neutral900}}>
 
                 {/* WEATHER NOW - TOP LEFT */}
                 <div onClick={handleConsoleReset} className="h-full w-full flex justify-center items-center row-start-1 row-end-2 col-start-2 col-end-4 cursor-pointer overflow-visible">
@@ -44,13 +43,31 @@ function Home(){
 
                 {/* UNITS */}
                 <div className="flex justify-end items-center row-start-1 row-end-2 col-start-11 col-end-12">
-                    <h2 onClick={handleIsUnitsDropdown} className="h-2/3 w-30 flex justify-center items-center hover:bg-gray-300 active:bg-gray-200 whitespace-nowrap cursor-pointer rounded-2xl" style={{backgroundColor: colors.neutral600, border: `2px solid ${colors.neutral700}`}}>⚙️ Units \/</h2>
+                    <h2 onClick={handleIsUnitsDropdown} className={`h-2/3 w-30 flex justify-center items-center hover:bg-gray-300 active:bg-gray-200 whitespace-nowrap cursor-pointer rounded-2xl ${isUnitsDropdown ? 'colors.neutral700' : 'border-2 border-white'}`} style={{backgroundColor: colors.neutral600}}>⚙️ Units \/</h2>
                 </div>
 
                 {/* UNITS DROP DOWN */}
-                <div className={`row-start-2 row-end-7 col-start-10 col-end-12 bg-gray-200 border-4 border-purple-600 opacity-50 z-10
-                    ${isUnitsDropdown ? 'hidden' : ''}
-                `}></div>
+                <div className={`flex flex-col justify-around row-start-2 row-end-7 col-start-10 col-end-12 ml-16 font-sans bg-gray-200 opacity-100 z-10 rounded-3xl ${isUnitsDropdown ? 'hidden' : ''}`} style={{backgroundColor: colors.neutral800, border: `2px solid ${colors.neutral600}`}}>
+                    <div className="h-12 w-full flex flex-col justify-center items-center">
+                        <h3 className="h-10 w-58 flex justify-start items-center pl-3 bg-gray-500 border-1 border-white rounded-lg hover:border-1 hover:border-white cursor-pointer">Switch to Imperial</h3>
+                    </div>
+                    <div className="h-28 w-full flex flex-col justify-around items-center border-b-1 border-gray-700">
+                        <h3 className="h-7 w-58 flex items-center pl-3 text-base text-gray-400 rounded-lg">Temperature</h3>
+                        <h4 className="h-9 w-58 flex justify-between items-center pl-2 text-lg bg-gray-500 rounded-lg hover:border-1 hover:border-white cursor-pointer">Celsius (°C)<span className="mr-4 text-3xl text-white">O</span></h4>
+                        <h4 className="h-9 w-58 flex justify-start items-center pl-2 text-lg rounded-lg hover:border-1 hover:border-white cursor-pointer">Fahrenheit (°F)</h4>
+                    </div>
+                    <div className="h-28 w-full flex flex-col justify-around items-center border-b-1 border-gray-700">
+                        <h3 className="h-7 w-58 flex items-center pl-3 text-base text-gray-400 rounded-lg">Wind Speed</h3>
+                        <h4 className="h-9 w-58 flex justify-between items-center pl-2 text-lg bg-gray-500 items-center rounded-lg hover:border-1 hover:border-white cursor-pointer">km/h<span className="mr-4 text-3xl text-white">O</span></h4>
+                        <h4 className="h-9 w-58 flex justify-start items-center pl-2 text-lg rounded-lg hover:border-1 hover:border-white cursor-pointer">mph</h4>
+                    </div>
+                    <div className="h-28 w-full flex flex-col justify-around items-center">
+                        <h3 className="h-7 w-58 flex items-center pl-3 text-base text-gray-400 rounded-lg">Precipitation</h3>
+                        <h4 className="h-9 w-58 flex justify-between items-center pl-2 bg-gray-500 text-lg items-center rounded-lg hover:border-1 hover:border-white cursor-pointer">Millimeters (mm)<span className="mr-4 text-3xl text-white">O</span></h4>
+                        <h4 className="h-9 w-58 flex justify-start items-center pl-2 text-lg rounded-lg hover:border-1 hover:border-white cursor-pointer">Inches (in)</h4>
+
+                    </div>
+                </div>
 
                 {/* TITLE */}
                 <div className="flex justify-center items-center row-start-2 row-end-3 col-start-4 col-end-11">
