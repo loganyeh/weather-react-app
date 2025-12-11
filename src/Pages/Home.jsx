@@ -1,6 +1,6 @@
 import { bgTodayLarge, bgTodaySmall, favicon, checkmark, drizzle, dropdown, error, fog,
     loading, overcast, partlyCloudy, rain, retry, search, snow, storm, sunny, units, logo } from "../assets/images";
-import { neutral900, neutral800, neutral700, neutral600, neutral300, neutral200, neutral0, orange500, blue500, blue700 } from '../assets/colors.js';
+import colors from '../assets/colors.js';
 import { useState } from "react";
 
 function Home(){
@@ -8,9 +8,12 @@ function Home(){
     const [isSearchDropdown, setIsSearchDropdown] = useState(false);
     const [isHourlyForecastDropdown, setIsHourlyForecastDropdown] = useState(false);
 
+
+
     return(
         <>
             <div id="home-page-borders" className="h-screen w-screen grid grid-rows-12 grid-cols-12 font-mono border-2 border-red-600">
+            {/* <div id="home-page-borders" className="h-screen w-screen grid grid-rows-12 grid-cols-12 font-mono border-2 border-red-600" style={{backgroundColor: {colors.neutral900}}}> */}
 
                 {/* WEATHER NOW - TOP LEFT */}
                 <div className="flex row-start-1 row-end-2 col-start-2 col-end-4 border-2 border-red-600">
