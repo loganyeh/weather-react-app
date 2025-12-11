@@ -39,13 +39,13 @@ function Home(){
 
                 {/* WEATHER NOW - TOP LEFT */}
                 <div onClick={handleConsoleReset} className="flex row-start-1 row-end-2 col-start-2 col-end-4 border-2 border-red-600 cursor-pointer">
-                    <img className="h-full w-3/12 flex justify-center items-center border-2 border-red-600 object-contain" src={logo} alt="weather app logo" />
-                    <h1 className="h-full w-9/12 flex justify-center items-center text-2xl font-medium border-2 border-red-600 whitespace-nowrap overflow-visible">Weather Now</h1>
+                    <img className="h-full w-3/12 flex justify-center items-center object-contain" src={logo} alt="weather app logo" />
+                    <h1 className="h-full w-9/12 flex justify-center items-center text-2xl font-medium whitespace-nowrap overflow-visible">Weather Now</h1>
                 </div>
 
                 {/* UNITS */}
-                <div className="flex justify-center items-center row-start-1 row-end-2 col-start-11 col-end-12 border-2 border-red-600">
-                    <h2 onClick={handleIsUnitsDropdown} className="h-2/3 w-full flex justify-center items-center hover:bg-gray-300 active:bg-gray-200 cursor-pointer rounded-2xl border-2 border-red-600">⚙️ Units \/</h2>
+                <div className="flex justify-end items-center row-start-1 row-end-2 col-start-11 col-end-12">
+                    <h2 onClick={handleIsUnitsDropdown} className="h-2/3 w-30 flex justify-center items-center hover:bg-gray-300 active:bg-gray-200 whitespace-nowrap cursor-pointer rounded-2xl border-2 border-red-600">⚙️ Units \/</h2>
                 </div>
 
                 {/* UNITS DROP DOWN */}
@@ -54,12 +54,12 @@ function Home(){
                 `}></div>
 
                 {/* TITLE */}
-                <div className="flex justify-center items-center row-start-2 row-end-3 col-start-4 col-end-11 border-2 border-red-600">
-                    <h1 className="text-6xl border-2 border-red-600 whitespace-nowrap overflow-visible">How's the Sky Looking Today?</h1>
+                <div className="flex justify-center items-center row-start-2 row-end-3 col-start-4 col-end-11">
+                    <h1 className="text-6xl whitespace-nowrap overflow-visible">How's the Sky Looking Today?</h1>
                 </div>
 
                 {/* SEARCH BAR AND SUBMIT BUTTON */}
-                <div className="flex justify-between items-end pl-22 pr-26 pt-5 row-start-3 row-end-4 col-start-4 col-end-11 border-2 border-red-600">                    
+                <div className="flex justify-between items-end pl-22 pr-26 pt-5 row-start-3 row-end-4 col-start-4 col-end-11">                    
                     <div className="h-full w-4/5 flex justify-center items-center border-2 border-black rounded-2xl">
                         <img onClick={handleIsSearchDropdown} className="h-1/2 w-1/12 rounded-l-2xl object-contain cursor-pointer" src={search} alt="" />
                         <input className="h-full w-11/12" type="text" placeholder="Search for a place..." />
@@ -81,7 +81,7 @@ function Home(){
                 </div>
 
                 {/* CITY STATE WEATHER DETAILS */}
-                <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-10 border-2 border-red-600">
+                <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-10">
 
                     <div className="h-full w-64 border-2 border-red-600 rounded-3xl">
                         <h3 className="flex items-center pl-2 h-1/2 w-full text-lg border-2 border-black rounded-t-3xl">Feels Like</h3>
@@ -107,10 +107,10 @@ function Home(){
                 </div>
 
                 {/* DAILY FORECAST */}
-                <div className="flex flex-col justify-around row-start-10 row-end-13 col-start-2 col-end-10 mr-10 border-2 border-red-600">
-                    <h4 className="h-1/12 w-full text-lg border-2 border-red-600">Daily Forecast</h4>
+                <div className="flex flex-col justify-around row-start-10 row-end-13 col-start-2 col-end-10 mr-10">
+                    <h4 className="h-1/12 w-full text-lg">Daily Forecast</h4>
 
-                    <div className="h-10/12 w-full flex justify-between items-center border-2 border-purple-600">
+                    <div className="h-10/12 w-full flex justify-between items-center">
                         
                         {/* 1 */}
                         <div className="h-11/12 w-32 border-2 border-black rounded-3xl">
@@ -214,15 +214,15 @@ function Home(){
                 </div>
 
                 {/* HOURLY FORECAST */}
-                <div className="flex flex-col row-start-4 row-end-13 col-start-10 col-end-12 mt-4 border-2 border-red-600 rounded-3xl">
+                <div className="flex flex-col row-start-4 row-end-13 col-start-10 col-end-12 mt-4 mb-3 border-2 border-red-600 rounded-3xl">
 
                     {/* ONE HOUR BLOCK */}
-                    <div className="h-24 w-full flex justify-around items-center border-2 border-red-600">
+                    <div className="h-14 w-full pt-2 flex justify-around items-center">
                         <h3 className="h-full w-2/4 flex justify-start items-center text-lg ml-3 whitespace-nowrap">Hourly Forecast</h3>
                         <h3 onClick={handleIsHourlyForecastDropdown} className="h-10 w-4/12 flex justify-center items-center text-sm border-2 border-red-600 hover:bg-gray-300 active:bg-gray-200 rounded-xl cursor-pointer">Tuesday \/</h3>
                     </div>
 
-                    <div className="h-11/12 w-full flex flex-col justify-around items-center border-2 border-black">
+                    <div className="h-11/12 w-full flex flex-col justify-around items-center">
 
                         {/* 1 */}
                         <div className="h-15 w-70 flex justify-between border-2 border-red-600 rounded-2xl">
