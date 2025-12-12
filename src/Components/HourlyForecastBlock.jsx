@@ -21,6 +21,7 @@ import {
 } from "../assets/images.js";
 import colors from "../assets/colors.js";
 import HourlyForecastTimeBlock from "./HourlyForecastTimeBlock";
+import HourlyForecastDropdown from "./HourlyForecastDropdown.jsx";
 
 function HourlyForecastBlock({ handleDropdown, isDropdown }) {
   return (
@@ -92,6 +93,7 @@ function HourlyForecastBlock({ handleDropdown, isDropdown }) {
             temp={"17°"}
           />
         </div>
+
       </div>
     </>
   );

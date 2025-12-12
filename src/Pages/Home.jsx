@@ -33,6 +33,7 @@ import DailyForecastBlock from "../Components/DailyForecastBlock.jsx";
 import UnitsDropdown from "../Components/UnitsDropdown.jsx";
 import SearchBarDropdown from "../Components/SearchBarDropdown.jsx";
 import Day from "../Components/Day.jsx";
+import HourlyForecastDropdown from "../Components/HourlyForecastDropdown.jsx";
 
 function Home() {
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
@@ -72,63 +73,33 @@ function Home() {
       >
         {/* WEATHER NOW LOGO*/}
         <Logo handleFn={handleConsoleReset} />
-
         {/* UNITS */}
         <Units handleDropdown={handleIsUnitsDropdown} bool={isUnitsDropdown} />
-
         {/* UNITS DROP DOWN */}
         <UnitsDropdown bool={isUnitsDropdown} />
-
         {/* TITLE */}
         <Title />
-
         {/* SEARCH BAR AND SUBMIT BUTTON */}
         <SearchBar handleDropdown={handleIsSearchDropdown} />
-
         {/* SEARCH BAR DROPDOWN */}
-        <SearchBarDropdown bool={isSearchDropdown}/>
-
+        <SearchBarDropdown bool={isSearchDropdown} />
         {/* CITY STATE TEMPERATURE */}
         <MainCard />
-
         {/* CITY STATE WEATHER DETAILS */}
         <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-32 mb-6">
-          <SmallCard title={"Feels Like"} value={"18°"}/>
-          <SmallCard title={"Humidity"} value={"46%"}/>
-          <SmallCard title={"Wind"} value={"14 km/h"}/>
-          <SmallCard title={"Precipitation"} value={"0 mm"}/>
+          <SmallCard title={"Feels Like"} value={"18°"} />
+          <SmallCard title={"Humidity"} value={"46%"} />
+          <SmallCard title={"Wind"} value={"14 km/h"} />
+          <SmallCard title={"Precipitation"} value={"0 mm"} />
         </div>
-
         {/* DAILY FORECAST */}
         <DailyForecastBlock />
-
         {/* HOURLY FORECAST */}
-        <HourlyForecastBlock handleDropdown={handleIsHourlyForecastDropdown} isDropdown={isHourlyForecastDropdown} />
-
-        {/* HOURLY FORECAST DROPDOWN */}
-        <div
-          className={`flex flex-col justify-around items-center ml-20 mr-8 row-start-5 row-end-9 col-start-10 col-end-12 bg-gray-200 text-white opacity-100 z-10 rounded-lg ${
-            isHourlyForecastDropdown ? "hidden" : ""
-          }`}
-          style={{
-            backgroundColor: colors.neutral800,
-            border: `2px solid ${colors.neutral600}`,
-          }}
-        >
-          
-          {/* <h3 className="h-10 w-48 flex justify-start items-center pl-4 bg-gray-500 hover:border-1 hover:border-white rounded-lg cursor-pointer">
-            Tuesday
-          </h3> */}
-          <Day day={"Sunday"} />
-          <Day day={"Monday"} />
-          <Day day={"Tuesday"} />
-          <Day day={"Wednesday"} />
-          <Day day={"Thursday"} />
-          <Day day={"Friday"} />
-          <Day day={"Saturday"} />
-          
-        </div>
-
+        <HourlyForecastBlock
+          handleDropdown={handleIsHourlyForecastDropdown}
+          isDropdown={isHourlyForecastDropdown}
+        />
+        <HourlyForecastDropdown bool={isHourlyForecastDropdown} />
       </div>
     </>
   );
