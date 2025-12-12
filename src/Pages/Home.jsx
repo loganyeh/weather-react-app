@@ -32,6 +32,7 @@ import Units from "../Components/Units.jsx";
 import DailyForecastBlock from "../Components/DailyForecastBlock.jsx";
 import UnitsDropdown from "../Components/UnitsDropdown.jsx";
 import SearchBarDropdown from "../Components/SearchBarDropdown.jsx";
+import Day from "../Components/Day.jsx";
 
 function Home() {
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
@@ -114,27 +115,18 @@ function Home() {
             border: `2px solid ${colors.neutral600}`,
           }}
         >
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
-            Sunday
-          </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
-            Monday
-          </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 bg-gray-500 hover:border-1 hover:border-white rounded-lg cursor-pointer">
+          
+          {/* <h3 className="h-10 w-48 flex justify-start items-center pl-4 bg-gray-500 hover:border-1 hover:border-white rounded-lg cursor-pointer">
             Tuesday
-          </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
-            Wednesday
-          </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
-            Thursday
-          </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
-            Friday
-          </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
-            Saturday
-          </h3>
+          </h3> */}
+          <Day day={"Sunday"} />
+          <Day day={"Monday"} />
+          <Day day={"Tuesday"} />
+          <Day day={"Wednesday"} />
+          <Day day={"Thursday"} />
+          <Day day={"Friday"} />
+          <Day day={"Saturday"} />
+          
         </div>
 
       </div>
