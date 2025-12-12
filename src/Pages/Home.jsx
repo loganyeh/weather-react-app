@@ -21,6 +21,10 @@ import {
 } from "../assets/images";
 import colors from "../assets/colors.js";
 import { useState } from "react";
+import MainCard from "../Components/MainCard.jsx";
+import SmallCard from "../Components/SmallCard.jsx";
+import DailyForecastBlock from "../Components/DailyForecastBlock.jsx";
+import HourlyForecastTimeBlock from "../Components/HourlyForecastTimeBlock.jsx";
 
 function Home() {
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
@@ -157,7 +161,7 @@ function Home() {
               alt=""
             />
             <input
-              className="h-full w-11/12 text-white cursor-pointer"
+              className="h-full w-11/12 text-white cursor-pointer rounded-r-2xl"
               type="text"
               placeholder="Search for a place..."
             />
@@ -195,276 +199,28 @@ function Home() {
         </div>
 
         {/* CITY STATE TEMPERATURE */}
-        <div
-          className="grid grid-rows-6 grid-cols-5 row-start-4 row-end-8 col-start-2 col-end-10 my-4 mr-32 border-2 border-blue-900 rounded-3xl bg-no-repeat bg-cover bg-center"
-          style={{ backgroundImage: `url(${bgTodayLarge})` }}
-        >
-          <h1 className="flex items-end pl-5 pb-2 row-start-2 row-end-4 col-start-1 col-end-3 text-4xl">
-            Berlin, Germany
-          </h1>
-          <h2 className="flex justify-start pl-5 pt-2 row-start-4 row-end-6 col-start-1 col-end-3 text-lg">
-            Tuesday. Aug 5, 2025
-          </h2>
-          <img
-            className="h-full w-full row-start-2 row-end-6 col-start-4 col-end-5 object-contain"
-            src={sunny}
-            alt="weather-img"
-          />
-          <h1 className="h-full w-full flex justify-center items-center pr-8 row-start-2 row-end-6 col-start-5 col-end-6 font-sans text-9xl">
-            20°
-          </h1>
-        </div>
+        <MainCard />
 
         {/* CITY STATE WEATHER DETAILS */}
         <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-32 mb-6">
-          <div
-            className="h-full w-64 rounded-3xl shadow-2xl"
-            style={{
-              backgroundColor: colors.neutral800,
-              border: `2px solid ${colors.neutral600}`,
-            }}
-          >
-            <h3 className="flex items-center pl-6 h-1/2 w-full text-lg rounded-t-3xl">
-              Feels Like
-            </h3>
-            <h3 className="flex items-center pl-6 h-1/2 w-full text-3xl rounded-b-3xl">
-              18°
-            </h3>
-          </div>
-
-          <div
-            className="h-full w-64 rounded-3xl shadow-2xl"
-            style={{
-              backgroundColor: colors.neutral800,
-              border: `2px solid ${colors.neutral600}`,
-            }}
-          >
-            <h3 className="flex items-center pl-6 h-1/2 w-full text-lg rounded-t-3xl">
-              Humidity
-            </h3>
-            <h3 className="flex items-center pl-6 h-1/2 w-full text-3xl rounded-b-3xl">
-              46%
-            </h3>
-          </div>
-
-          <div
-            className="h-full w-64 rounded-3xl shadow-2xl"
-            style={{
-              backgroundColor: colors.neutral800,
-              border: `2px solid ${colors.neutral600}`,
-            }}
-          >
-            <h3 className="flex items-center pl-6 h-1/2 w-full text-lg rounded-t-3xl">
-              Wind
-            </h3>
-            <h3 className="flex items-center pl-6 h-1/2 w-full text-3xl rounded-b-3xl">
-              14 km/h
-            </h3>
-          </div>
-
-          <div
-            className="h-full w-64 rounded-3xl shadow-2xl"
-            style={{
-              backgroundColor: colors.neutral800,
-              border: `2px solid ${colors.neutral600}`,
-            }}
-          >
-            <h3 className="flex items-center pl-6 h-1/2 w-full text-lg rounded-t-3xl">
-              Precipitation
-            </h3>
-            <h3 className="flex items-center pl-6 h-1/2 w-full text-3xl rounded-b-3xl">
-              0 mm
-            </h3>
-          </div>
+          <SmallCard title={"Feels Like"} value={"18°"}/>
+          <SmallCard title={"Humidity"} value={"46%"}/>
+          <SmallCard title={"Wind"} value={"14 km/h"}/>
+          <SmallCard title={"Precipitation"} value={"0 mm"}/>
         </div>
 
         {/* DAILY FORECAST */}
         <div className="flex flex-col justify-around row-start-10 row-end-13 col-start-2 col-end-10 mr-32">
           <h4 className="h-1/12 w-full text-xl">Daily Forecast</h4>
-
           <div className="h-10/12 w-full flex justify-between items-center">
-            {/* 1 */}
-            <div
-              className="h-11/12 w-32 rounded-3xl"
-              style={{
-                backgroundColor: colors.neutral800,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-1/4 w-full rounded-t-3xl">
-                <h4 className="h-full w-full flex justify-center items-center text-xl">
-                  Tue
-                </h4>
-              </div>
-              <div className="h-2/4 w-full">
-                <img
-                  className="h-full w-full object-contain"
-                  src={rain}
-                  alt=""
-                />
-              </div>
-              <div className="h-1/4 w-full flex justify-between items-center rounded-b-3xl">
-                <h5 className="m-4 text-lg">20°</h5>
-                <h5 className="m-4 text-lg">14°</h5>
-              </div>
-            </div>
-
-            {/* 2 */}
-            <div
-              className="h-11/12 w-32 rounded-3xl"
-              style={{
-                backgroundColor: colors.neutral800,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-1/4 w-full rounded-t-3xl">
-                <h4 className="h-full w-full flex justify-center items-center text-xl">
-                  Wed
-                </h4>
-              </div>
-              <div className="h-2/4 w-full">
-                <img
-                  className="h-full w-full object-contain"
-                  src={drizzle}
-                  alt=""
-                />
-              </div>
-              <div className="h-1/4 w-full flex justify-between items-center rounded-b-3xl">
-                <h5 className="m-4 text-lg">21°</h5>
-                <h5 className="m-4 text-lg">15°</h5>
-              </div>
-            </div>
-
-            {/* 3 */}
-            <div
-              className="h-11/12 w-32 rounded-3xl"
-              style={{
-                backgroundColor: colors.neutral800,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-1/4 w-full rounded-t-3xl">
-                <h4 className="h-full w-full flex justify-center items-center text-xl">
-                  Thu
-                </h4>
-              </div>
-              <div className="h-2/4 w-full">
-                <img
-                  className="h-full w-full object-contain"
-                  src={sunny}
-                  alt=""
-                />
-              </div>
-              <div className="h-1/4 w-full flex justify-between items-center rounded-b-3xl">
-                <h5 className="m-4 text-lg">24°</h5>
-                <h5 className="m-4 text-lg">14°</h5>
-              </div>
-            </div>
-
-            {/* 4 */}
-            <div
-              className="h-11/12 w-32 rounded-3xl"
-              style={{
-                backgroundColor: colors.neutral800,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-1/4 w-full rounded-t-3xl">
-                <h4 className="h-full w-full flex justify-center items-center text-xl">
-                  Fri
-                </h4>
-              </div>
-              <div className="h-2/4 w-full">
-                <img
-                  className="h-full w-full object-contain"
-                  src={partlyCloudy}
-                  alt=""
-                />
-              </div>
-              <div className="h-1/4 w-full flex justify-between items-center rounded-b-3xl">
-                <h5 className="m-4 text-lg">25°</h5>
-                <h5 className="m-4 text-lg">13°</h5>
-              </div>
-            </div>
-
-            {/* 5 */}
-            <div
-              className="h-11/12 w-32 rounded-3xl"
-              style={{
-                backgroundColor: colors.neutral800,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-1/4 w-full rounded-t-3xl">
-                <h4 className="h-full w-full flex justify-center items-center text-xl">
-                  Sat
-                </h4>
-              </div>
-              <div className="h-2/4 w-full">
-                <img
-                  className="h-full w-full object-contain"
-                  src={storm}
-                  alt=""
-                />
-              </div>
-              <div className="h-1/4 w-full flex justify-between items-center rounded-b-3xl">
-                <h5 className="m-4 text-lg">21°</h5>
-                <h5 className="m-4 text-lg">15°</h5>
-              </div>
-            </div>
-
-            {/* 6 */}
-            <div
-              className="h-11/12 w-32 rounded-3xl"
-              style={{
-                backgroundColor: colors.neutral800,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-1/4 w-full rounded-t-3xl">
-                <h4 className="h-full w-full flex justify-center items-center text-xl">
-                  Sun
-                </h4>
-              </div>
-              <div className="h-2/4 w-full">
-                <img
-                  className="h-full w-full object-contain"
-                  src={snow}
-                  alt=""
-                />
-              </div>
-              <div className="h-1/4 w-full flex justify-between items-center rounded-b-3xl">
-                <h5 className="m-4 text-lg">25°</h5>
-                <h5 className="m-4 text-lg">16°</h5>
-              </div>
-            </div>
-
-            {/* 7 */}
-            <div
-              className="h-11/12 w-32 rounded-3xl"
-              style={{
-                backgroundColor: colors.neutral800,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-1/4 w-full rounded-t-3xl">
-                <h4 className="h-full w-full flex justify-center items-center text-xl">
-                  Mon
-                </h4>
-              </div>
-              <div className="h-2/4 w-full">
-                <img
-                  className="h-full w-full object-contain"
-                  src={fog}
-                  alt=""
-                />
-              </div>
-              <div className="h-1/4 w-full flex justify-between items-center rounded-b-3xl">
-                <h5 className="m-4 text-lg">24°</h5>
-                <h5 className="m-4 text-lg">15°</h5>
-              </div>
-            </div>
-          </div>
+            <DailyForecastBlock day={"Tue"} weatherImg={rain} high={"20°"} low={"14°"}/>
+            <DailyForecastBlock day={"Wed"} weatherImg={rain} high={"21°"} low={"15°"}/>
+            <DailyForecastBlock day={"Thu"} weatherImg={sunny} high={"23°"} low={"14°"}/>
+            <DailyForecastBlock day={"Fri"} weatherImg={partlyCloudy} high={"25°"} low={"13°"}/>
+            <DailyForecastBlock day={"Sat"} weatherImg={storm} high={"21°"} low={"15°"}/>
+            <DailyForecastBlock day={"Sun"} weatherImg={snow} high={"25°"} low={"16°"}/>
+            <DailyForecastBlock day={"Mon"} weatherImg={fog} high={"24°"} low={"15°"}/>
+          </div>Time
         </div>
 
         {/* HOURLY FORECAST */}
@@ -495,185 +251,14 @@ function Home() {
           </div>
 
           <div className="h-11/12 w-full flex flex-col justify-around items-center">
-            {/* 1 */}
-            <div
-              className="h-15 w-90 flex justify-between rounded-2xl"
-              style={{
-                backgroundColor: colors.neutral700,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-full w-1/2 flex">
-                <img
-                  className="h-full w-1/2 object-contain"
-                  src={overcast}
-                  alt=""
-                />
-                <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-                  3 PM
-                </h4>
-              </div>
-              <h5 className="h-full w-1/4 flex justify-center items-center text-lg">
-                20°
-              </h5>
-            </div>
-
-            {/* 2 */}
-            <div
-              className="h-15 w-90 flex justify-between rounded-2xl"
-              style={{
-                backgroundColor: colors.neutral700,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-full w-1/2 flex">
-                <img
-                  className="h-full w-1/2 object-contain"
-                  src={partlyCloudy}
-                  alt=""
-                />
-                <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-                  4 PM
-                </h4>
-              </div>
-              <h5 className="h-full w-1/4 flex justify-center items-center text-lg">
-                20°
-              </h5>
-            </div>
-
-            {/* 3 */}
-            <div
-              className="h-15 w-90 flex justify-between rounded-2xl"
-              style={{
-                backgroundColor: colors.neutral700,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-full w-1/2 flex">
-                <img
-                  className="h-full w-1/2 object-contain"
-                  src={sunny}
-                  alt=""
-                />
-                <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-                  5 PM
-                </h4>
-              </div>
-              <h5 className="h-full w-1/4 flex justify-center items-center text-lg">
-                20°
-              </h5>
-            </div>
-
-            {/* 4 */}
-            <div
-              className="h-15 w-90 flex justify-between rounded-2xl"
-              style={{
-                backgroundColor: colors.neutral700,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-full w-1/2 flex">
-                <img
-                  className="h-full w-1/2 object-contain"
-                  src={overcast}
-                  alt=""
-                />
-                <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-                  6 PM
-                </h4>
-              </div>
-              <h5 className="h-full w-1/4 flex justify-center items-center text-lg">
-                19°
-              </h5>
-            </div>
-
-            {/* 5 */}
-            <div
-              className="h-15 w-90 flex justify-between rounded-2xl"
-              style={{
-                backgroundColor: colors.neutral700,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-full w-1/2 flex">
-                <img
-                  className="h-full w-1/2 object-contain"
-                  src={snow}
-                  alt=""
-                />
-                <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-                  7 PM
-                </h4>
-              </div>
-              <h5 className="h-full w-1/4 flex justify-center items-center text-lg">
-                18°
-              </h5>
-            </div>
-
-            {/* 6 */}
-            <div
-              className="h-15 w-90 flex justify-between rounded-2xl"
-              style={{
-                backgroundColor: colors.neutral700,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-full w-1/2 flex">
-                <img className="h-full w-1/2 object-contain" src={fog} alt="" />
-                <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-                  8 PM
-                </h4>
-              </div>
-              <h5 className="h-full w-1/4 flex justify-center items-center text-lg">
-                18°
-              </h5>
-            </div>
-
-            {/* 7 */}
-            <div
-              className="h-15 w-90 flex justify-between rounded-2xl"
-              style={{
-                backgroundColor: colors.neutral700,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-full w-1/2 flex">
-                <img
-                  className="h-full w-1/2 object-contain"
-                  src={snow}
-                  alt=""
-                />
-                <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-                  9 PM
-                </h4>
-              </div>
-              <h5 className="h-full w-1/4 flex justify-center items-center text-lg">
-                17°
-              </h5>
-            </div>
-
-            {/* 8 */}
-            <div
-              className="h-15 w-90 flex justify-between rounded-2xl"
-              style={{
-                backgroundColor: colors.neutral700,
-                border: `2px solid ${colors.neutral600}`,
-              }}
-            >
-              <div className="h-full w-1/2 flex">
-                <img
-                  className="h-full w-1/2 object-contain"
-                  src={overcast}
-                  alt=""
-                />
-                <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-                  1 0PM
-                </h4>
-              </div>
-              <h5 className="h-full w-1/4 flex justify-center items-center text-lg">
-                17°
-              </h5>
-            </div>
+            <HourlyForecastTimeBlock weatherImg={overcast} time={"3 PM"} temp={"20°"} />
+            <HourlyForecastTimeBlock weatherImg={partlyCloudy} time={"4 PM"} temp={"20°"} />
+            <HourlyForecastTimeBlock weatherImg={sunny} time={"5 PM"} temp={"20°"} />
+            <HourlyForecastTimeBlock weatherImg={overcast} time={"6 PM"} temp={"19°"} />
+            <HourlyForecastTimeBlock weatherImg={snow} time={"7 PM"} temp={"18°"} />
+            <HourlyForecastTimeBlock weatherImg={fog} time={"8 PM"} temp={"18°"} />
+            <HourlyForecastTimeBlock weatherImg={snow} time={"9 PM"} temp={"17°"} />
+            <HourlyForecastTimeBlock weatherImg={overcast} time={"10 PM"} temp={"17°"} />
           </div>
         </div>
 
