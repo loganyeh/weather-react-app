@@ -67,7 +67,7 @@ function Home() {
         className="h-screen w-screen grid grid-rows-12 grid-cols-12 text-white font-mono"
         style={{ backgroundColor: colors.neutral900 }}
       >
-        {/* WEATHER NOW LOGO}
+        {/* WEATHER NOW LOGO*/}
         <Logo handleFn={handleConsoleReset} />
 
         {/* UNITS */}
@@ -203,6 +203,7 @@ function Home() {
             Saturday
           </h3>
         </div>
+        
       </div>
     </>
   );
