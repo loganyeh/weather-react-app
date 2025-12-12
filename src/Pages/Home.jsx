@@ -33,7 +33,7 @@ function Home() {
   }
 
   function handleIsSearchDropdown() {
-    // setIsSearchDropdown(prev => !prev);
+    setIsSearchDropdown((prev) => !prev);
   }
 
   function handleIsHourlyForecastDropdown() {
@@ -74,7 +74,7 @@ function Home() {
         <div className="flex justify-end items-center row-start-1 row-end-2 col-start-11 col-end-12">
           <h2
             onClick={handleIsUnitsDropdown}
-            className={`h-2/3 w-30 flex justify-center items-center hover:bg-gray-300 active:bg-gray-200 whitespace-nowrap cursor-pointer rounded-2xl ${
+            className={`h-2/3 w-30 flex justify-center items-center hover:border-2 active:border-white whitespace-nowrap cursor-pointer rounded-2xl ${
               isUnitsDropdown ? "colors.neutral700" : "border-2 border-white"
             }`}
             style={{ backgroundColor: colors.neutral600 }}
@@ -94,7 +94,7 @@ function Home() {
           }}
         >
           <div className="h-12 w-full flex flex-col justify-center items-center">
-            <h3 className="h-10 w-58 flex justify-start items-center pl-3 bg-gray-500 border-1 border-white rounded-lg hover:border-1 hover:border-white cursor-pointer">
+            <h3 className="h-10 w-58 flex justify-start items-center pl-3 bg-gray-500 hover:border-1 hover:border-white rounded-lg hover:border-1 hover:border-white cursor-pointer">
               Switch to Imperial
             </h3>
           </div>
@@ -157,13 +157,13 @@ function Home() {
               alt=""
             />
             <input
-              className="h-full w-11/12 text-white"
+              className="h-full w-11/12 text-white cursor-pointer"
               type="text"
               placeholder="Search for a place..."
             />
           </div>
           <button
-            className="h-full w-1/6 border-2 border-black rounded-2xl text-xl hover:bg-red-700 active:bg-gray-200 cursor-pointer"
+            className="h-full w-1/6 rounded-2xl text-xl hover:border-2 hover:border-blue-900 cursor-pointer"
             style={{ backgroundColor: colors.blue500 }}
           >
             Search
@@ -172,10 +172,27 @@ function Home() {
 
         {/* SEARCH BAR DROPDOWN */}
         <div
-          className={`ml-23 mr-65 row-start-4 row-end-8 col-start-4 col-end-11 bg-gray-200 border-4 border-purple-600 opacity-50 z-10
+          className={`flex flex-col justify-around ml-22 mr-72 mt-2 row-start-4 row-end-7 col-start-4 col-end-11 bg-gray-200 border-4 border-purple-600 opacity-100 z-10 rounded-3xl overflow-visible
                     ${isSearchDropdown ? "hidden" : ""}
                 `}
-        ></div>
+          style={{
+            backgroundColor: colors.neutral700,
+            border: `1px solid ${colors.neutral300}`,
+          }}
+        >
+          <h3 className="h-3/12 w-176 flex items-center mx-4 mt-2 pl-4 bg-gray-500 rounded-lg hover:border-2 hover:border-white cursor-pointer">
+            City Name
+          </h3>
+          <h3 className="h-3/12 w-176 flex items-center mx-4 mt-2 pl-4 rounded-lg hover:border-2 hover:border-white cursor-pointer">
+            City Name
+          </h3>
+          <h3 className="h-3/12 w-176 flex items-center mx-4 mt-2 pl-4 rounded-lg hover:border-2 hover:border-white cursor-pointer">
+            City Name
+          </h3>
+          <h3 className="h-3/12 w-176 flex items-center mx-4 mt-2 pl-4 rounded-lg hover:border-2 hover:border-white cursor-pointer">
+            City Name
+          </h3>
+        </div>
 
         {/* CITY STATE TEMPERATURE */}
         <div
@@ -452,7 +469,7 @@ function Home() {
 
         {/* HOURLY FORECAST */}
         <div
-          className="flex flex-col row-start-4 row-end-13 col-start-9 col-end-12 mt-4 ml-16 mb-3 border-2 border-red-600 rounded-3xl"
+          className={`flex flex-col row-start-4 row-end-13 col-start-9 col-end-12 mt-4 ml-16 mb-3 rounded-3xl`}
           style={{
             backgroundColor: colors.neutral800,
             border: `2px solid ${colors.neutral700}`,
@@ -465,10 +482,12 @@ function Home() {
             </h3>
             <h3
               onClick={handleIsHourlyForecastDropdown}
-              className="h-10 w-4/12 flex justify-center items-center text-sm hover:bg-gray-300 active:bg-gray-200 rounded-xl cursor-pointer"
+              className={`h-10 w-4/12 flex justify-center items-center text-sm rounded-xl hover:border-2 hover:border-white cursor-pointer
+              ${isHourlyForecastDropdown ? `` : "border-2 border-white"}
+              `}
               style={{
                 backgroundColor: colors.neutral600,
-                border: `2px solid ${colors.neutral700}`,
+                // border: `2px solid ${colors.neutral700}`,
               }}
             >
               Tuesday \/
