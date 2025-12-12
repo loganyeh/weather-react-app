@@ -26,7 +26,7 @@ function Home() {
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
   const [isSearchDropdown, setIsSearchDropdown] = useState(true);
   const [isHourlyForecastDropdown, setIsHourlyForecastDropdown] =
-    useState(false);
+    useState(true);
 
   function handleIsUnitsDropdown() {
     setIsUnitsDropdown((prev) => !prev);
@@ -662,32 +662,34 @@ function Home() {
         <div
           className={`flex flex-col justify-around items-center ml-20 mr-8 row-start-5 row-end-9 col-start-10 col-end-12 bg-gray-200 text-white opacity-100 z-10 rounded-lg ${
             isHourlyForecastDropdown ? "hidden" : ""
-          }`} 
-          style={{backgroundColor: colors.neutral800, border: `2px solid ${colors.neutral600}`}}
+          }`}
+          style={{
+            backgroundColor: colors.neutral800,
+            border: `2px solid ${colors.neutral600}`,
+          }}
         >
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg">
+          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
             Sunday
           </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg">
+          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
             Monday
           </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 bg-gray-500 hover:border-1 hover:border-white rounded-lg">
+          <h3 className="h-10 w-48 flex justify-start items-center pl-4 bg-gray-500 hover:border-1 hover:border-white rounded-lg cursor-pointer">
             Tuesday
           </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg">
+          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
             Wednesday
           </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg">
+          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
             Thursday
           </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg">
+          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
             Friday
           </h3>
-          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg">
+          <h3 className="h-10 w-48 flex justify-start items-center pl-4 hover:border-1 hover:border-white rounded-lg cursor-pointer">
             Saturday
           </h3>
         </div>
-        
       </div>
     </>
   );
