@@ -78,13 +78,13 @@ function Home() {
         {/* SEARCH BAR DROPDOWN */}
         <SearchBarDropdown bool={isSearchDropdown} />
         {/* CITY STATE TEMPERATURE */}
-        <MainCard data={data}/>
+        <MainCard value={data}/>
         {/* CITY STATE WEATHER DETAILS */}
         <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-32 mb-6">
-          <SmallCard title={"Feels Like"} value={"18°"} />
-          <SmallCard title={"Humidity"} value={"46%"} />
-          <SmallCard title={"Wind"} value={"14 km/h"} />
-          <SmallCard title={"Precipitation"} value={"0 mm"} />
+          <SmallCard title={"Feels Like"} value={`${data?.apparentTemp.toFixed(0)}°`} />
+          <SmallCard title={"Humidity"} value={`${data?.humidity.toFixed(0)}%`} />
+          <SmallCard title={"Wind"} value={`${data?.wind.toFixed(0)} mph`} />
+          <SmallCard title={"Precipitation"} value={`${data?.precipitation.toFixed(0)} in`} />
         </div>
         {/* DAILY FORECAST */}
         <DailyForecastBlock />
