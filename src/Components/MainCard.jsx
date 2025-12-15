@@ -20,7 +20,7 @@ import {
     logo,
   } from "../assets/images";
 
-function MainCard() {
+function MainCard({data}) {
   return (
     <>
       <div
@@ -28,7 +28,7 @@ function MainCard() {
         style={{ backgroundImage: `url(${bgTodayLarge})` }}
       >
         <h1 className="flex items-end pl-5 pb-2 row-start-2 row-end-4 col-start-1 col-end-3 text-4xl">
-          Berlin, Germany
+          Atlanta, Georgia
         </h1>
         <h2 className="flex justify-start pl-5 pt-2 row-start-4 row-end-6 col-start-1 col-end-3 text-lg">
           Tuesday. Aug 5, 2025
@@ -39,7 +39,7 @@ function MainCard() {
           alt="weather-img"
         />
         <h1 className="h-full w-full flex justify-center items-center pr-8 row-start-2 row-end-6 col-start-5 col-end-6 font-sans text-9xl">
-          20°
+          X°
         </h1>
       </div>
     </>
