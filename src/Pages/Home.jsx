@@ -17,7 +17,7 @@ import { MyContext } from "../Context/MyContext.jsx";
 import { FetchAtlanta } from "../API/api.js";
 
 function Home() {
-  const {queryData, setQueryData, data, setData} = useContext(MyContext);
+  const {queryData, setQueryData, data, setData, isMPH, setIsMPH, isImperial, setIsImperial, isFahrenheit, setIsFahrenheit, isInches, setIsInches} = useContext(MyContext);
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
   const [isSearchDropdown, setIsSearchDropdown] = useState(true);
   const [isHourlyForecastDropdown, setIsHourlyForecastDropdown] =
@@ -93,8 +93,8 @@ function Home() {
         <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-32 mb-6">
           <SmallCard title={"Feels Like"} value={`${data?.apparentTemp.toFixed(0)}°`} />
           <SmallCard title={"Humidity"} value={`${data?.humidity.toFixed(0)}%`} />
-          <SmallCard title={"Wind"} value={`${data?.wind.toFixed(0)} mph`} />
-          <SmallCard title={"Precipitation"} value={`${data?.precipitation.toFixed(0)} in`} />
+          <SmallCard title={"Wind"} value={`${data?.wind.toFixed(0)} ${isMPH ? 'km/h' : 'mph'}`} />
+          <SmallCard title={"Precipitation"} value={`${data?.precipitation.toFixed(0)} ${isInches ? 'mm' : 'in'}`} />
         </div>
         {/* DAILY FORECAST */}
         <DailyForecastBlock data={data} />
