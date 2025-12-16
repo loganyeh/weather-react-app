@@ -25,10 +25,6 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const date = new Date();
-  // console.log(date);
-  // console.log(date.getDay());
-
   function handleIsUnitsDropdown() {
     setIsUnitsDropdown((prev) => !prev);
   }
@@ -39,13 +35,6 @@ function Home() {
 
   function handleIsHourlyForecastDropdown() {
     setIsHourlyForecastDropdown((prev) => !prev);
-  }
-
-  function handleCloseDropdowns() {
-    console.log("close dropdowns clicked");
-    setIsUnitsDropdown((prev) => (prev = true));
-    setIsSearchDropdown((prev) => (prev = true));
-    setIsHourlyForecastDropdown((prev) => (prev = true));
   }
 
   const handleConsoleReset = () => {

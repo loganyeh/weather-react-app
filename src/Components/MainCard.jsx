@@ -22,6 +22,11 @@ import {
 import WeatherCodeFn from "../assets/weatherCode";
 
 function MainCard({value}) {
+
+  const date = new Date().toString();
+  console.log(date);
+  const splitDate = date.split(" ");
+
   return (
     <>
       <div
@@ -32,7 +37,7 @@ function MainCard({value}) {
           Lawrenceville, Georgia
         </h1>
         <h2 className="flex justify-start pl-5 pt-2 row-start-4 row-end-6 col-start-1 col-end-3 text-lg">
-          Tuesday. Aug 5, 2025
+          {`${splitDate[0]}day. ${splitDate[1]} ${splitDate[2]}, ${splitDate[3]}`}
         </h2>
         <img
           className="h-full w-full row-start-2 row-end-6 col-start-4 col-end-5 object-contain"
