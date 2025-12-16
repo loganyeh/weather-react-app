@@ -25,12 +25,15 @@ export const FetchAtlanta = async () => {
             humidity: data.current.relative_humidity_2m,
             wind: data.current.wind_speed_10m,
             precipitation: data.current.precipitation,
-            dailyForecast1: data.hourly.time
+            dailyForecast1: data.hourly.time,
+            tempMaxArray: data.daily.temperature_2m_max,
+            tempMinArray: data.daily.temperature_2m_min,
+            weatherCodeArray: data.daily.weather_code
         }
 
         console.log(data);
-        console.log(dataObject.dailyForecast1[0]);
-        console.log(dataObject.dailyForecast1[24]);
+        // console.log(dataObject.dailyForecast1[0]);
+        // console.log(dataObject.dailyForecast1[24]);
 
         return dataObject;
 

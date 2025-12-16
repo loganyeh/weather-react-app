@@ -19,6 +19,7 @@ import {
     units,
     logo,
   } from "../assets/images";
+import WeatherCodeFn from "../assets/weatherCode";
 
 function MainCard({value}) {
   return (
@@ -35,7 +36,7 @@ function MainCard({value}) {
         </h2>
         <img
           className="h-full w-full row-start-2 row-end-6 col-start-4 col-end-5 object-contain"
-          src={sunny}
+          src={WeatherCodeFn(value?.weatherCodeArray[0])}
           alt="weather-img"
         />
         <h1 className="h-full w-full flex justify-center items-center pr-8 row-start-2 row-end-6 col-start-5 col-end-6 font-sans text-9xl">

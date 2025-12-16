@@ -91,7 +91,7 @@ function Home() {
           <SmallCard title={"Precipitation"} value={`${data?.precipitation.toFixed(0)} in`} />
         </div>
         {/* DAILY FORECAST */}
-        <DailyForecastBlock />
+        <DailyForecastBlock data={data} />
         {/* HOURLY FORECAST */}
         <HourlyForecastBlock
           handleDropdown={handleIsHourlyForecastDropdown}

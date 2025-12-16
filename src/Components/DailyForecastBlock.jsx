@@ -22,8 +22,9 @@ import {
 import colors from "../assets/colors.js";
 import DailyForecastDayBlock from "./DailyForecastDayBlock";
 import { useState, useEffect } from "react";
+import WeatherCodeFn from "../assets/weatherCode.js";
 
-function DailyForecastBlock() {
+function DailyForecastBlock({data}) {
 
   const date = new Date();
   let dateCurrentDay = date.getDay();
@@ -72,45 +73,45 @@ function DailyForecastBlock() {
         <div className="h-10/12 w-full flex justify-between items-center">
           <DailyForecastDayBlock
             day={dayArray[0]}
-            weatherImg={rain}
-            high={"20°"}
-            low={"14°"}
+            weatherImg={WeatherCodeFn(data?.weatherCodeArray[0])}
+            high={data?.tempMaxArray[0].toFixed(0)}
+            low={data?.tempMinArray[0].toFixed(0)}
           />
           <DailyForecastDayBlock
             day={dayArray[1]}
-            weatherImg={rain}
-            high={"21°"}
-            low={"15°"}
+            weatherImg={WeatherCodeFn(data?.weatherCodeArray[1])}
+            high={data?.tempMaxArray[1].toFixed(0)}
+            low={data?.tempMinArray[1].toFixed(0)}
           />
           <DailyForecastDayBlock
             day={dayArray[2]}
-            weatherImg={sunny}
-            high={"23°"}
-            low={"14°"}
+            weatherImg={WeatherCodeFn(data?.weatherCodeArray[2])}
+            high={data?.tempMaxArray[2].toFixed(0)}
+            low={data?.tempMinArray[2].toFixed(0)}
           />
           <DailyForecastDayBlock
             day={dayArray[3]}
-            weatherImg={partlyCloudy}
-            high={"25°"}
-            low={"13°"}
+            weatherImg={WeatherCodeFn(data?.weatherCodeArray[3])}
+            high={data?.tempMaxArray[3].toFixed(0)}
+            low={data?.tempMinArray[3].toFixed(0)}
           />
           <DailyForecastDayBlock
             day={dayArray[4]}
-            weatherImg={storm}
-            high={"21°"}
-            low={"15°"}
+            weatherImg={WeatherCodeFn(data?.weatherCodeArray[4])}
+            high={data?.tempMaxArray[4].toFixed(0)}
+            low={data?.tempMinArray[4].toFixed(0)}
           />
           <DailyForecastDayBlock
             day={dayArray[5]}
-            weatherImg={snow}
-            high={"25°"}
-            low={"16°"}
+            weatherImg={WeatherCodeFn(data?.weatherCodeArray[5])}
+            high={data?.tempMaxArray[5].toFixed(0)}
+            low={data?.tempMinArray[5].toFixed(0)}
           />
           <DailyForecastDayBlock
             day={dayArray[6]}
-            weatherImg={fog}
-            high={"24°"}
-            low={"15°"}
+            weatherImg={WeatherCodeFn(data?.weatherCodeArray[6])}
+            high={data?.tempMaxArray[6].toFixed(0)}
+            low={data?.tempMinArray[6].toFixed(0)}
           />
         </div>
       </div>
