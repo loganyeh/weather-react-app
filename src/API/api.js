@@ -11,8 +11,24 @@ export const FetchWeather = async (query) => {
 
         const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${queryData?.latitude}&longitude=${queryData?.longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code&current=weather_code,temperature_2m,precipitation,wind_speed_10m,apparent_temperature,relative_humidity_2m&timezone=America%2FNew_York&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`)
         const data2 = await response2.json();
+        // console.log(data2);
+        const queryData2 = {
+            date: data2.current.time,
+            weatherCode: data2.current.weather_code, 
+            currentTemp: data2.current.temperature_2m,
+            apparentTemp: data2.current.apparent_temperature,
+            humidity: data2.current.relative_humidity_2m,
+            wind: data2.current.wind_speed_10m,
+            precipitation: data2.current.precipitation,
+            dailyForecast1: data2.hourly.time,
+            tempMaxArray: data2.daily.temperature_2m_max,
+            tempMinArray: data2.daily.temperature_2m_min,
+            weatherCodeArray: data2.daily.weather_code,
+            hourlyWeatherCodeArray: data2.hourly.weather_code,
+            hourlyTemperatureArray: data2.hourly.temperature_2m,
+        }
 
-        return data2;
+        return {queryData, queryData2};
 
     } catch (error) {
         

@@ -17,6 +17,7 @@ import { MyContext } from "../Context/MyContext.jsx";
 import { FetchAtlanta } from "../API/api.js";
 
 function Home() {
+  const {queryData, setQueryData} = useContext(MyContext);
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
   const [isSearchDropdown, setIsSearchDropdown] = useState(true);
   const [isHourlyForecastDropdown, setIsHourlyForecastDropdown] =
@@ -50,6 +51,18 @@ function Home() {
     getAtlantaWeather();
 
   }, []);
+
+
+  async function handleQueryData() {
+    try {
+      const data = await(queryData);
+      console.log(data);
+    } catch (error) {
+      
+    }
+  }
+
+  handleQueryData();
 
   return (
     <>

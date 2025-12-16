@@ -5,10 +5,12 @@ import { useState } from "react";
 
 function App() {
   const [page, setPage] = useState([]);
+  const [queryData, setQueryData] = useState([]);
+  // const [data, setData] = useState(null);
 
   return (
     <>
-      <MyContext.Provider value={{page, setPage}}>
+      <MyContext.Provider value={{page, setPage, queryData, setQueryData}}>
         <Home />
       </MyContext.Provider>
     </>
