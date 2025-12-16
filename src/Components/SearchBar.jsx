@@ -19,12 +19,11 @@ function SearchBar({ handleDropdown }) {
         setQueryLongitude(data?.longitude);
         const data2 = await FetchWeather(inputValue);
         console.log(data2);
+        setInputValue("");
       } catch (error) {
             
       }
   }
-
-
 
   return (
     <>
@@ -44,6 +43,7 @@ function SearchBar({ handleDropdown }) {
           />
           <input
             onChange={handleInput}
+            value={inputValue}
             className="h-full w-11/12 text-white cursor-pointer rounded-r-2xl"
             type="text"
             placeholder="Search for a place..."
