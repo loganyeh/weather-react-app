@@ -5,7 +5,7 @@ import { FetchWeather } from "../API/api";
 import { MyContext } from "../Context/MyContext";
 
 function SearchBar({ handleDropdown }) {
-  const {queryData, setQueryData} = useContext(MyContext);
+  const {queryData, setQueryData, data, setData} = useContext(MyContext);
   const [inputValue, setInputValue] = useState(``);
   const [queryLatitude, setQueryLatitude] = useState();
   const [queryLongitude, setQueryLongitude] = useState();

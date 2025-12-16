@@ -17,12 +17,12 @@ import { MyContext } from "../Context/MyContext.jsx";
 import { FetchAtlanta } from "../API/api.js";
 
 function Home() {
-  const {queryData, setQueryData} = useContext(MyContext);
+  const {queryData, setQueryData, data, setData} = useContext(MyContext);
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
   const [isSearchDropdown, setIsSearchDropdown] = useState(true);
   const [isHourlyForecastDropdown, setIsHourlyForecastDropdown] =
     useState(true);
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 

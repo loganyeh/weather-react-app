@@ -6,11 +6,11 @@ import { useState } from "react";
 function App() {
   const [page, setPage] = useState([]);
   const [queryData, setQueryData] = useState([]);
-  // const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
 
   return (
     <>
-      <MyContext.Provider value={{page, setPage, queryData, setQueryData}}>
+      <MyContext.Provider value={{page, setPage, queryData, setQueryData, data, setData}}>
         <Home />
       </MyContext.Provider>
     </>
