@@ -1,11 +1,21 @@
 import axios from 'axios';
 
-export const FetchWeather = async () => {
+export const FetchWeather = async (query) => {
     try {
-        const { data } = await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code&current=weather_code,temperature_2m,precipitation,wind_speed_10m,apparent_temperature,relative_humidity_2m&timezone=America%2FNew_York&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`)
-        // console.log(data);
+        const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=10&language=en&format=json&countryCode=US`)
+        const data = await response.json();
+        const queryData = {
+            latitude: data.results[0].latitude,
+            longitude: data.results[0].longitude,
+        }
+
+        const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${queryData?.latitude}&longitude=${queryData?.longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code&current=weather_code,temperature_2m,precipitation,wind_speed_10m,apparent_temperature,relative_humidity_2m&timezone=America%2FNew_York&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`)
+        const data2 = await response2.json();
+
+        return data2;
+
     } catch (error) {
-        console.error(error);
+        
     }
 }
 
@@ -33,7 +43,7 @@ export const FetchAtlanta = async () => {
             hourlyTemperatureArray: data.hourly.temperature_2m,
         }
 
-        console.log(data);
+        // console.log(data);
         // console.log(dataObject.dailyForecast1[0]);
         // console.log(dataObject.dailyForecast1[24]);
 

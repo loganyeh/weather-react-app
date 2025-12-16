@@ -24,7 +24,7 @@ import WeatherCodeFn from "../assets/weatherCode";
 function MainCard({value}) {
 
   const date = new Date().toString();
-  console.log(date);
+  // console.log(date);
   const splitDate = date.split(" ");
 
   return (
