@@ -46,23 +46,24 @@ function Home() {
   useEffect(() => {
     const getAtlantaWeather = async () => {
       const data = await FetchAtlanta();
+      console.log(data)
       setData(data);
     }
     getAtlantaWeather();
 
   }, []);
 
-
-  async function handleQueryData() {
-    try {
-      const data = await(queryData);
-      console.log(data);
-    } catch (error) {
+  // async function handleQueryData() {
+  //   try {
+  //     const data = await(queryData);
+  //     // console.log(data);
+  //     // setData(data);
+  //   } catch (error) {
       
-    }
-  }
+  //   }
+  // }
 
-  handleQueryData();
+  // handleQueryData();
 
   return (
     <>
