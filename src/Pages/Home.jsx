@@ -1,29 +1,7 @@
-import {
-  bgTodayLarge,
-  bgTodaySmall,
-  favicon,
-  checkmark,
-  drizzle,
-  dropdown,
-  error,
-  fog,
-  loading,
-  overcast,
-  partlyCloudy,
-  rain,
-  retry,
-  search,
-  snow,
-  storm,
-  sunny,
-  units,
-  logo,
-} from "../assets/images";
 import colors from "../assets/colors.js";
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import MainCard from "../Components/MainCard.jsx";
 import SmallCard from "../Components/SmallCard.jsx";
-import DailyForecastDayBlock from "../Components/DailyForecastDayBlock.jsx";
 import HourlyForecastBlock from "../Components/HourlyForecastBlock.jsx";
 import Title from "../Components/Title.jsx";
 import SearchBar from "../Components/SearchBar.jsx";
@@ -32,14 +10,20 @@ import Units from "../Components/Units.jsx";
 import DailyForecastBlock from "../Components/DailyForecastBlock.jsx";
 import UnitsDropdown from "../Components/UnitsDropdown.jsx";
 import SearchBarDropdown from "../Components/SearchBarDropdown.jsx";
-import Day from "../Components/Day.jsx";
 import HourlyForecastDropdown from "../Components/HourlyForecastDropdown.jsx";
+import { MyContext } from "../Context/MyContext.jsx";
+
+// API IMPORT
+import { FetchAtlanta } from "../API/api.js";
 
 function Home() {
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
   const [isSearchDropdown, setIsSearchDropdown] = useState(true);
   const [isHourlyForecastDropdown, setIsHourlyForecastDropdown] =
     useState(true);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   function handleIsUnitsDropdown() {
     setIsUnitsDropdown((prev) => !prev);
@@ -53,16 +37,19 @@ function Home() {
     setIsHourlyForecastDropdown((prev) => !prev);
   }
 
-  function handleCloseDropdowns() {
-    console.log("close dropdowns clicked");
-    setIsUnitsDropdown((prev) => (prev = true));
-    setIsSearchDropdown((prev) => (prev = true));
-    setIsHourlyForecastDropdown((prev) => (prev = true));
-  }
-
   const handleConsoleReset = () => {
     console.clear();
   };
+
+  // SANDBOX
+  useEffect(() => {
+    const getAtlantaWeather = async () => {
+      const data = await FetchAtlanta();
+      setData(data);
+    }
+    getAtlantaWeather();
+
+  }, []);
 
   return (
     <>
@@ -84,20 +71,21 @@ function Home() {
         {/* SEARCH BAR DROPDOWN */}
         <SearchBarDropdown bool={isSearchDropdown} />
         {/* CITY STATE TEMPERATURE */}
-        <MainCard />
+        <MainCard value={data}/>
         {/* CITY STATE WEATHER DETAILS */}
         <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-32 mb-6">
-          <SmallCard title={"Feels Like"} value={"18°"} />
-          <SmallCard title={"Humidity"} value={"46%"} />
-          <SmallCard title={"Wind"} value={"14 km/h"} />
-          <SmallCard title={"Precipitation"} value={"0 mm"} />
+          <SmallCard title={"Feels Like"} value={`${data?.apparentTemp.toFixed(0)}°`} />
+          <SmallCard title={"Humidity"} value={`${data?.humidity.toFixed(0)}%`} />
+          <SmallCard title={"Wind"} value={`${data?.wind.toFixed(0)} mph`} />
+          <SmallCard title={"Precipitation"} value={`${data?.precipitation.toFixed(0)} in`} />
         </div>
         {/* DAILY FORECAST */}
-        <DailyForecastBlock />
+        <DailyForecastBlock data={data} />
         {/* HOURLY FORECAST */}
         <HourlyForecastBlock
           handleDropdown={handleIsHourlyForecastDropdown}
           isDropdown={isHourlyForecastDropdown}
+          data={data}
         />
         <HourlyForecastDropdown bool={isHourlyForecastDropdown} />
       </div>
