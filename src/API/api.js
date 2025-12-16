@@ -28,7 +28,9 @@ export const FetchAtlanta = async () => {
             dailyForecast1: data.hourly.time,
             tempMaxArray: data.daily.temperature_2m_max,
             tempMinArray: data.daily.temperature_2m_min,
-            weatherCodeArray: data.daily.weather_code
+            weatherCodeArray: data.daily.weather_code,
+            hourlyWeatherCodeArray: data.hourly.weather_code,
+            hourlyTemperatureArray: data.hourly.temperature_2m,
         }
 
         console.log(data);

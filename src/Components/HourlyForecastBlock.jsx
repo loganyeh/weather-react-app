@@ -22,8 +22,46 @@ import {
 import colors from "../assets/colors.js";
 import HourlyForecastTimeBlock from "./HourlyForecastTimeBlock";
 import HourlyForecastDropdown from "./HourlyForecastDropdown.jsx";
+import WeatherCodeFn from "../assets/weatherCode.js";
+import { useState, useEffect } from "react";
 
-function HourlyForecastBlock({ handleDropdown, isDropdown }) {
+function HourlyForecastBlock({ handleDropdown, isDropdown, data }) {
+  const [isPM, setPM] = useState(true);
+  const timeSlotsArray = [];
+  const date = new Date();
+  let currentTime = date.getHours() % 12;
+  for(let i = 0; i < 8; i++){
+    timeSlotsArray.push(currentTime % 12);
+    currentTime++;
+  }
+  // const weatherImgArray = [];
+  const [weatherTempArray, setWeatherTempArray] = useState([]);
+  
+  // console.log(date.getHours());
+  // console.log(data?.hourlyWeatherCodeArray[weatherImgArray[0]]);
+  
+  // FOR HOURLY FORECAST TEMPERATURE
+  useEffect(() => {
+    let weatherImgCounter = date.getHours();
+    for(let i = 0; i < 8; i++){
+      setWeatherTempArray(prev => [...prev, weatherImgCounter]);
+      // tempArray.push(weatherImgCounter);
+      // console.log(weatherImgCounter);
+      weatherImgCounter++;
+    }
+    console.log(tempArray);
+  }, [])
+
+  const tempArray = [];
+  let tempGetHours = date.getHours();
+  console.log(typeof tempGetHours);
+  for(let i = 0; i < 8; i++){
+    tempArray.push(tempGetHours);
+    tempGetHours++;
+  }
+
+  console.log(tempArray);
+
   return (
     <>
       <div
@@ -54,43 +92,43 @@ function HourlyForecastBlock({ handleDropdown, isDropdown }) {
         <div className="h-11/12 w-full flex flex-col justify-around items-center">
           <HourlyForecastTimeBlock
             weatherImg={overcast}
-            time={"3 PM"}
-            temp={"20°"}
+            time={`${timeSlotsArray[0]}`}
+            temp={`${data?.hourlyTemperatureArray[tempArray[0]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={partlyCloudy}
-            time={"4 PM"}
-            temp={"20°"}
+            time={`${timeSlotsArray[1]}`}
+            temp={`${data?.hourlyTemperatureArray[tempArray[1]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={sunny}
-            time={"5 PM"}
-            temp={"20°"}
+            time={`${timeSlotsArray[2]}`}
+            temp={`${data?.hourlyTemperatureArray[tempArray[2]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={overcast}
-            time={"6 PM"}
-            temp={"19°"}
+            time={`${timeSlotsArray[3]}`}
+            temp={`${data?.hourlyTemperatureArray[tempArray[3]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={snow}
-            time={"7 PM"}
-            temp={"18°"}
+            time={`${timeSlotsArray[4]}`}
+            temp={`${data?.hourlyTemperatureArray[tempArray[4]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={fog}
-            time={"8 PM"}
-            temp={"18°"}
+            time={`${timeSlotsArray[5]}`}
+            temp={`${data?.hourlyTemperatureArray[tempArray[5]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={snow}
-            time={"9 PM"}
-            temp={"17°"}
+            time={`${timeSlotsArray[6]}`}
+            temp={`${data?.hourlyTemperatureArray[tempArray[6]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={overcast}
-            time={"10 PM"}
-            temp={"17°"}
+            time={`${timeSlotsArray[7]}`}
+            temp={`${data?.hourlyTemperatureArray[tempArray[7]].toFixed(0)}°`}
           />
         </div>
 

@@ -96,6 +96,7 @@ function Home() {
         <HourlyForecastBlock
           handleDropdown={handleIsHourlyForecastDropdown}
           isDropdown={isHourlyForecastDropdown}
+          data={data}
         />
         <HourlyForecastDropdown bool={isHourlyForecastDropdown} />
       </div>
