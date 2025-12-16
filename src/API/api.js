@@ -19,7 +19,6 @@ export const FetchWeather = async (query) => {
     }
 }
 
-
 // WORKING ON THIS API
 export const FetchAtlanta = async () => {
     try {
