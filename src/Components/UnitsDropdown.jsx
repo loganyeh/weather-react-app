@@ -13,6 +13,10 @@ function UnitsDropdown({ bool }) {
     const handleIsFahrenheit = () => {
       setIsFahrenheit(prev => !prev);
     }
+    
+    const handleIsInches = () => {
+      setIsInches(prev => !prev);
+    }
 
     return(
         <>
@@ -60,12 +64,12 @@ function UnitsDropdown({ bool }) {
             <h3 className="h-7 w-58 flex items-center pl-3 text-base text-gray-400 rounded-lg">
               Precipitation
             </h3>
-            <h4 className={`h-9 w-58 flex justify-between items-center pl-2 bg-gray-500 text-lg items-center rounded-lg hover:border-1 hover:border-white cursor-pointer`}>
+            <h4 onClick={handleIsInches} className={`h-9 w-58 flex justify-between items-center pl-2 text-lg items-center rounded-lg hover:border-1 hover:border-white cursor-pointer ${isInches ? `bg-gray-500` : ``}`}>
               Millimeters (mm)
-              <span className="mr-4 text-3xl text-white">O</span>
+              <span className={`${isInches ? `` : `hidden`} mr-4 text-3xl text-white`}>O</span>
             </h4>
-            <h4 className={`h-9 w-58 flex justify-between items-center pl-2 text-lg rounded-lg hover:border-1 hover:border-white cursor-pointer`}>
-              Inches (in)<span className="mr-4 text-3xl text-white">O</span>
+            <h4 onClick={handleIsInches} className={`h-9 w-58 flex justify-between items-center pl-2 text-lg rounded-lg hover:border-1 hover:border-white cursor-pointer ${isInches ? `` : `bg-gray-500`}`}>
+              Inches (in)<span className={`${isInches ? `hidden` : ``} mr-4 text-3xl text-white`}>O</span>
             </h4>
           </div>
         </div>

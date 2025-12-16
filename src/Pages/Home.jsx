@@ -93,8 +93,8 @@ function Home() {
         <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-32 mb-6">
           <SmallCard title={"Feels Like"} value={`${data?.apparentTemp.toFixed(0)}°`} />
           <SmallCard title={"Humidity"} value={`${data?.humidity.toFixed(0)}%`} />
-          <SmallCard title={"Wind"} value={`${data?.wind.toFixed(0)} ${isMPH ? 'mph' : 'km/h'}`} />
-          <SmallCard title={"Precipitation"} value={`${data?.precipitation.toFixed(0)} in`} />
+          <SmallCard title={"Wind"} value={`${data?.wind.toFixed(0)} ${isMPH ? 'km/h' : 'mph'}`} />
+          <SmallCard title={"Precipitation"} value={`${data?.precipitation.toFixed(0)} ${isInches ? 'mm' : 'in'}`} />
         </div>
         {/* DAILY FORECAST */}
         <DailyForecastBlock data={data} />
