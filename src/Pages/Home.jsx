@@ -25,6 +25,7 @@ function Home() {
   // const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [resetEffect, setResetEffect] = useState(false);
 
   function handleIsUnitsDropdown() {
     setIsUnitsDropdown((prev) => !prev);
@@ -40,7 +41,9 @@ function Home() {
 
   const handleConsoleReset = () => {
     console.clear();
+    setResetEffect(prev => !prev);
   };
+
 
   // SANDBOX
   useEffect(() => {
@@ -51,7 +54,7 @@ function Home() {
     }
     getAtlantaWeather();
 
-  }, []);
+  }, [resetEffect]);
 
   // async function handleQueryData() {
   //   try {
