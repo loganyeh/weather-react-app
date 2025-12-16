@@ -34,33 +34,13 @@ function HourlyForecastBlock({ handleDropdown, isDropdown, data }) {
     timeSlotsArray.push(currentTime % 12);
     currentTime++;
   }
-  // const weatherImgArray = [];
-  const [weatherTempArray, setWeatherTempArray] = useState([]);
-  
-  // console.log(date.getHours());
-  // console.log(data?.hourlyWeatherCodeArray[weatherImgArray[0]]);
-  
-  // FOR HOURLY FORECAST TEMPERATURE
-  useEffect(() => {
-    let weatherImgCounter = date.getHours();
-    for(let i = 0; i < 8; i++){
-      setWeatherTempArray(prev => [...prev, weatherImgCounter]);
-      // tempArray.push(weatherImgCounter);
-      // console.log(weatherImgCounter);
-      weatherImgCounter++;
-    }
-    console.log(tempArray);
-  }, [])
 
   const tempArray = [];
   let tempGetHours = date.getHours();
-  console.log(typeof tempGetHours);
   for(let i = 0; i < 8; i++){
     tempArray.push(tempGetHours);
     tempGetHours++;
   }
-
-  console.log(tempArray);
 
   return (
     <>
@@ -91,42 +71,42 @@ function HourlyForecastBlock({ handleDropdown, isDropdown, data }) {
 
         <div className="h-11/12 w-full flex flex-col justify-around items-center">
           <HourlyForecastTimeBlock
-            weatherImg={overcast}
+            weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[0]])}
             time={`${timeSlotsArray[0]}`}
             temp={`${data?.hourlyTemperatureArray[tempArray[0]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
-            weatherImg={partlyCloudy}
+            weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[1]])}
             time={`${timeSlotsArray[1]}`}
             temp={`${data?.hourlyTemperatureArray[tempArray[1]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
-            weatherImg={sunny}
+            weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[2]])}
             time={`${timeSlotsArray[2]}`}
             temp={`${data?.hourlyTemperatureArray[tempArray[2]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
-            weatherImg={overcast}
+            weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[3]])}
             time={`${timeSlotsArray[3]}`}
             temp={`${data?.hourlyTemperatureArray[tempArray[3]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
-            weatherImg={snow}
+            weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[4]])}
             time={`${timeSlotsArray[4]}`}
             temp={`${data?.hourlyTemperatureArray[tempArray[4]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
-            weatherImg={fog}
+            weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[5]])}
             time={`${timeSlotsArray[5]}`}
             temp={`${data?.hourlyTemperatureArray[tempArray[5]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
-            weatherImg={snow}
+            weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[6]])}
             time={`${timeSlotsArray[6]}`}
             temp={`${data?.hourlyTemperatureArray[tempArray[6]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
-            weatherImg={overcast}
+            weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[7]])}
             time={`${timeSlotsArray[7]}`}
             temp={`${data?.hourlyTemperatureArray[tempArray[7]].toFixed(0)}°`}
           />
