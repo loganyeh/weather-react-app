@@ -25,6 +25,10 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const date = new Date();
+  // console.log(date);
+  // console.log(date.getDay());
+
   function handleIsUnitsDropdown() {
     setIsUnitsDropdown((prev) => !prev);
   }
