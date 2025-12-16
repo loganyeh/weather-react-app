@@ -34,7 +34,7 @@ function MainCard({value}) {
         style={{ backgroundImage: `url(${bgTodayLarge})` }}
       >
         <h1 className="flex items-end pl-5 pb-2 row-start-2 row-end-4 col-start-1 col-end-3 text-4xl whitespace-nowrap">
-          Lawrenceville, Georgia
+          {value?.city}, {value?.state}
         </h1>
         <h2 className="flex justify-start pl-5 pt-2 row-start-4 row-end-6 col-start-1 col-end-3 text-lg">
           {`${splitDate[0]}day. ${splitDate[1]} ${splitDate[2]}, ${splitDate[3]}`}

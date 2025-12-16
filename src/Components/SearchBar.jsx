@@ -1,9 +1,11 @@
 import { search } from "../assets/images";
 import colors from "../assets/colors";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { FetchWeather } from "../API/api";
+import { MyContext } from "../Context/MyContext";
 
 function SearchBar({ handleDropdown }) {
+  const {queryData, setQueryData, data, setData} = useContext(MyContext);
   const [inputValue, setInputValue] = useState(``);
   const [queryLatitude, setQueryLatitude] = useState();
   const [queryLongitude, setQueryLongitude] = useState();
@@ -18,11 +20,23 @@ function SearchBar({ handleDropdown }) {
         setQueryLatitude(data?.latitude);
         setQueryLongitude(data?.longitude);
         const data2 = await FetchWeather(inputValue);
-        console.log(data2);
+        console.log(data2.queryData2);
+        setQueryData(data2);
+        setData(data2.queryData2);
         setInputValue("");
       } catch (error) {
             
       }
+  }
+
+  async function handleQueryData() {
+    try {
+      const data = await(queryData);
+      // console.log(data);
+      // setData(data);
+    } catch (error) {
+      
+    }
   }
 
   return (

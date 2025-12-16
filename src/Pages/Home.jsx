@@ -17,13 +17,15 @@ import { MyContext } from "../Context/MyContext.jsx";
 import { FetchAtlanta } from "../API/api.js";
 
 function Home() {
+  const {queryData, setQueryData, data, setData} = useContext(MyContext);
   const [isUnitsDropdown, setIsUnitsDropdown] = useState(true);
   const [isSearchDropdown, setIsSearchDropdown] = useState(true);
   const [isHourlyForecastDropdown, setIsHourlyForecastDropdown] =
     useState(true);
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [resetEffect, setResetEffect] = useState(false);
 
   function handleIsUnitsDropdown() {
     setIsUnitsDropdown((prev) => !prev);
@@ -39,17 +41,32 @@ function Home() {
 
   const handleConsoleReset = () => {
     console.clear();
+    setResetEffect(prev => !prev);
   };
+
 
   // SANDBOX
   useEffect(() => {
     const getAtlantaWeather = async () => {
       const data = await FetchAtlanta();
+      console.log(data)
       setData(data);
     }
     getAtlantaWeather();
 
-  }, []);
+  }, [resetEffect]);
+
+  // async function handleQueryData() {
+  //   try {
+  //     const data = await(queryData);
+  //     // console.log(data);
+  //     // setData(data);
+  //   } catch (error) {
+      
+  //   }
+  // }
+
+  // handleQueryData();
 
   return (
     <>
