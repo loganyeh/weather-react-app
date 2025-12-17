@@ -13,9 +13,30 @@ function App() {
   const [isInches, setIsInches] = useState(false);
   const [isMetric, setIsMetric] = useState(false);
 
+  // DAYS OF THE WEEK STATES
+
   return (
     <>
-      <MyContext.Provider value={{page, setPage, queryData, setQueryData, data, setData, isMPH, setIsMPH, isImperial, setIsImperial, isFahrenheit, setIsFahrenheit, isInches, setIsInches, isMetric, setIsMetric}}>
+      <MyContext.Provider
+        value={{
+          page,
+          setPage,
+          queryData,
+          setQueryData,
+          data,
+          setData,
+          isMPH,
+          setIsMPH,
+          isImperial,
+          setIsImperial,
+          isFahrenheit,
+          setIsFahrenheit,
+          isInches,
+          setIsInches,
+          isMetric,
+          setIsMetric
+        }}
+      >
         <Home />
       </MyContext.Provider>
     </>
