@@ -11,10 +11,11 @@ function App() {
   const [isImperial, setIsImperial] = useState(false);
   const [isFahrenheit, setIsFahrenheit] = useState(false);
   const [isInches, setIsInches] = useState(false);
+  const [isMetric, setIsMetric] = useState(false);
 
   return (
     <>
-      <MyContext.Provider value={{page, setPage, queryData, setQueryData, data, setData, isMPH, setIsMPH, isImperial, setIsImperial, isFahrenheit, setIsFahrenheit, isInches, setIsInches}}>
+      <MyContext.Provider value={{page, setPage, queryData, setQueryData, data, setData, isMPH, setIsMPH, isImperial, setIsImperial, isFahrenheit, setIsFahrenheit, isInches, setIsInches, isMetric, setIsMetric}}>
         <Home />
       </MyContext.Provider>
     </>

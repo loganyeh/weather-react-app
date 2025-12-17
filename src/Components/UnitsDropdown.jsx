@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 
 function UnitsDropdown({ bool }) {
     // const [isMPH, setIsMPH] = useState(false);
-    const {isMPH, setIsMPH, isImperial, setIsImperial, isFahrenheit, setIsFahrenheit, isInches, setIsInches} = useContext(MyContext);
+    const {isMPH, setIsMPH, isImperial, setIsImperial, isFahrenheit, setIsFahrenheit, isInches, setIsInches, isMetric, setIsMetric} = useContext(MyContext);
 
     const handleIsMPH = () => {
       setIsMPH(prev => !prev);
@@ -16,6 +16,10 @@ function UnitsDropdown({ bool }) {
     
     const handleIsInches = () => {
       setIsInches(prev => !prev);
+    }
+
+    const handleMetricToImperial = () => {
+      setIsMetric(prev => !prev);
     }
 
     return(
@@ -30,8 +34,8 @@ function UnitsDropdown({ bool }) {
           }}
         >
           <div className="h-12 w-full flex flex-col justify-center items-center">
-            <h3 className="h-10 w-58 flex justify-start items-center pl-3 bg-gray-500 hover:border-1 hover:border-white rounded-lg hover:border-1 hover:border-white cursor-pointer">
-              Switch to Metric
+            <h3 onClick={handleMetricToImperial} className="h-10 w-58 flex justify-start items-center pl-3 bg-gray-500 hover:border-1 hover:border-white rounded-lg hover:border-1 hover:border-white cursor-pointer">
+              {isMetric ? `Switch to Imperial` : `Switch to Metric`}
             </h3>
           </div>
           <div className="h-28 w-full flex flex-col justify-around items-center border-b-1 border-gray-700">
