@@ -50,7 +50,7 @@ function Home() {
   useEffect(() => {
     const getAtlantaWeather = async () => {
       const data = await FetchAtlanta();
-      console.log(data)
+      // console.log(data)
       setData(data);
     }
     getAtlantaWeather();
