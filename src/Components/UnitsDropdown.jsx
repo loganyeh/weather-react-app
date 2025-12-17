@@ -7,20 +7,36 @@ function UnitsDropdown({ bool }) {
     const {isMPH, setIsMPH, isImperial, setIsImperial, isFahrenheit, setIsFahrenheit, isInches, setIsInches, isMetric, setIsMetric} = useContext(MyContext);
 
     const handleIsMPH = () => {
+      // if(isMPH == true){
+      //   setIsMPH(false);
+      // }
       setIsMPH(prev => !prev);
     }
 
     const handleIsFahrenheit = () => {
+      // if(isFahrenheit == true){
+      //   setIsFahrenheit(true);
+      // }
       setIsFahrenheit(prev => !prev);
     }
     
     const handleIsInches = () => {
+      // if(isInches == true){
+      //   setIsInches(false);
+      // }
       setIsInches(prev => !prev);
     }
 
     const handleMetricToImperial = () => {
-      
-
+      // if(isMPH == true){
+      //   setIsMPH(false);
+      // }
+      // if(isFahrenheit == true){
+      //   setIsFahrenheit(false);
+      // }
+      // if(isInches == true){
+      //   setIsInches(false);
+      // }
       setIsMetric(prev => !prev);
     }
 

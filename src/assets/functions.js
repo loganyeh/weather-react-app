@@ -9,3 +9,5 @@ export function postMeredian(time) {
     }
 
 }
+
+// creates day of the week function that returns day of the week for the title block
