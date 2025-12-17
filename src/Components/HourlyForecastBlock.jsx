@@ -23,9 +23,12 @@ import colors from "../assets/colors.js";
 import HourlyForecastTimeBlock from "./HourlyForecastTimeBlock";
 import HourlyForecastDropdown from "./HourlyForecastDropdown.jsx";
 import WeatherCodeFn from "../assets/weatherCode.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MyContext } from "../Context/MyContext.jsx";
+import { toCelsius } from "../assets/unitDropdownFunctions.js";
 
 function HourlyForecastBlock({ handleDropdown, isDropdown, data }) {
+  const {isFahrenheit, setIsFahrenheit} = useContext(MyContext);
   const [isPM, setPM] = useState(true);
   const timeSlotsArray = [];
   const date = new Date();
@@ -73,42 +76,42 @@ function HourlyForecastBlock({ handleDropdown, isDropdown, data }) {
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[0]])}
             time={`${timeSlotsArray[0]}`}
-            temp={`${data?.hourlyTemperatureArray[tempArray[0]].toFixed(0)}°`}
+            temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[0]])}°` : `${data?.hourlyTemperatureArray[tempArray[0]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[1]])}
             time={`${timeSlotsArray[1]}`}
-            temp={`${data?.hourlyTemperatureArray[tempArray[1]].toFixed(0)}°`}
+            temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[1]])}°` : `${data?.hourlyTemperatureArray[tempArray[1]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[2]])}
             time={`${timeSlotsArray[2]}`}
-            temp={`${data?.hourlyTemperatureArray[tempArray[2]].toFixed(0)}°`}
+            temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[2]])}°` : `${data?.hourlyTemperatureArray[tempArray[2]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[3]])}
             time={`${timeSlotsArray[3]}`}
-            temp={`${data?.hourlyTemperatureArray[tempArray[3]].toFixed(0)}°`}
+            temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[3]])}°` : `${data?.hourlyTemperatureArray[tempArray[3]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[4]])}
             time={`${timeSlotsArray[4]}`}
-            temp={`${data?.hourlyTemperatureArray[tempArray[4]].toFixed(0)}°`}
+            temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[4]])}°` : `${data?.hourlyTemperatureArray[tempArray[4]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[5]])}
             time={`${timeSlotsArray[5]}`}
-            temp={`${data?.hourlyTemperatureArray[tempArray[5]].toFixed(0)}°`}
+            temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[5]])}°` : `${data?.hourlyTemperatureArray[tempArray[5]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[6]])}
             time={`${timeSlotsArray[6]}`}
-            temp={`${data?.hourlyTemperatureArray[tempArray[6]].toFixed(0)}°`}
+            temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[6]])}°` : `${data?.hourlyTemperatureArray[tempArray[6]].toFixed(0)}°`}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[7]])}
             time={`${timeSlotsArray[7]}`}
-            temp={`${data?.hourlyTemperatureArray[tempArray[7]].toFixed(0)}°`}
+            temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[7]])}°` : `${data?.hourlyTemperatureArray[tempArray[7]].toFixed(0)}°`}
           />
         </div>
 
