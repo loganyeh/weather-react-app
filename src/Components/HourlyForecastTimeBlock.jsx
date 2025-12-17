@@ -20,8 +20,19 @@ import {
   logo,
 } from "../assets/images.js";
 import colors from "../assets/colors.js";
+import { postMeredian } from "../assets/functions.js";
 
-function HourlyForecastTimeBlock({ weatherImg, time, temp }) {
+function HourlyForecastTimeBlock({ weatherImg, time, temp, xm }) {
+
+  function convertZeroTime(time) {
+    if(time === "0"){
+      return "12";
+    }
+    else{
+      return time;
+    }
+  }
+
   return (
     <>
       <div
@@ -38,7 +49,7 @@ function HourlyForecastTimeBlock({ weatherImg, time, temp }) {
             alt=""
           />
           <h4 className="h-full w-1/2 flex justify-start items-center text-xl">
-            {time}
+            {convertZeroTime(time)} {xm}
           </h4>
         </div>
         <h5 className="h-full w-1/4 flex justify-center items-center text-lg">

@@ -26,10 +26,10 @@ import WeatherCodeFn from "../assets/weatherCode.js";
 import { useState, useEffect, useContext } from "react";
 import { MyContext } from "../Context/MyContext.jsx";
 import { toCelsius } from "../assets/unitDropdownFunctions.js";
+import { postMeredian } from "../assets/functions.js";
 
 function HourlyForecastBlock({ handleDropdown, isDropdown, data }) {
   const {isFahrenheit, setIsFahrenheit} = useContext(MyContext);
-  const [isPM, setPM] = useState(true);
   const timeSlotsArray = [];
   const date = new Date();
   let currentTime = date.getHours() % 12;
@@ -43,6 +43,14 @@ function HourlyForecastBlock({ handleDropdown, isDropdown, data }) {
   for(let i = 0; i < 8; i++){
     tempArray.push(tempGetHours);
     tempGetHours++;
+  }
+
+  const date2 = new Date();
+  let date2Num = date2.getHours();
+  let pmArray = [];
+  for(let i = 0; i < 8; i++){
+    pmArray.push(date2Num % 24);
+    date2Num++;
   }
 
   return (
@@ -77,41 +85,49 @@ function HourlyForecastBlock({ handleDropdown, isDropdown, data }) {
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[0]])}
             time={`${timeSlotsArray[0]}`}
             temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[0]])}°` : `${data?.hourlyTemperatureArray[tempArray[0]].toFixed(0)}°`}
+            xm={postMeredian(pmArray[0])}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[1]])}
             time={`${timeSlotsArray[1]}`}
             temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[1]])}°` : `${data?.hourlyTemperatureArray[tempArray[1]].toFixed(0)}°`}
+            xm={postMeredian(pmArray[1])}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[2]])}
             time={`${timeSlotsArray[2]}`}
             temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[2]])}°` : `${data?.hourlyTemperatureArray[tempArray[2]].toFixed(0)}°`}
+            xm={postMeredian(pmArray[2])}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[3]])}
             time={`${timeSlotsArray[3]}`}
             temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[3]])}°` : `${data?.hourlyTemperatureArray[tempArray[3]].toFixed(0)}°`}
+            xm={postMeredian(pmArray[3])}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[4]])}
             time={`${timeSlotsArray[4]}`}
             temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[4]])}°` : `${data?.hourlyTemperatureArray[tempArray[4]].toFixed(0)}°`}
+            xm={postMeredian(pmArray[4])}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[5]])}
             time={`${timeSlotsArray[5]}`}
             temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[5]])}°` : `${data?.hourlyTemperatureArray[tempArray[5]].toFixed(0)}°`}
+            xm={postMeredian(pmArray[5])}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[6]])}
             time={`${timeSlotsArray[6]}`}
             temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[6]])}°` : `${data?.hourlyTemperatureArray[tempArray[6]].toFixed(0)}°`}
+            xm={postMeredian(pmArray[6])}
           />
           <HourlyForecastTimeBlock
             weatherImg={WeatherCodeFn(data?.hourlyWeatherCodeArray[tempArray[7]])}
             time={`${timeSlotsArray[7]}`}
             temp={isFahrenheit ? `${toCelsius(data?.hourlyTemperatureArray[tempArray[7]])}°` : `${data?.hourlyTemperatureArray[tempArray[7]].toFixed(0)}°`}
+            xm={postMeredian(pmArray[7])}
           />
         </div>
 
