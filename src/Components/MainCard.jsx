@@ -20,8 +20,12 @@ import {
     logo,
   } from "../assets/images";
 import WeatherCodeFn from "../assets/weatherCode";
+import { toCelsius } from "../assets/unitDropdownFunctions";
+import { useContext } from "react";
+import { MyContext } from "../Context/MyContext";
 
 function MainCard({value}) {
+  const {isFahrenheit, setIsFahrenheit} = useContext(MyContext);
 
   const date = new Date().toString();
   // console.log(date);
@@ -45,7 +49,7 @@ function MainCard({value}) {
           alt="weather-img"
         />
         <h1 className="h-full w-full flex justify-center items-center pr-8 row-start-2 row-end-6 col-start-5 col-end-6 font-sans text-9xl">
-          {value?.currentTemp.toFixed(0)}°
+          {isFahrenheit ? toCelsius(value?.currentTemp) : value?.currentTemp.toFixed(0)}°
         </h1>
       </div>
     </>

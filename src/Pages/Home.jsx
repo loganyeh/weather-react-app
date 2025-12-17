@@ -12,6 +12,7 @@ import UnitsDropdown from "../Components/UnitsDropdown.jsx";
 import SearchBarDropdown from "../Components/SearchBarDropdown.jsx";
 import HourlyForecastDropdown from "../Components/HourlyForecastDropdown.jsx";
 import { MyContext } from "../Context/MyContext.jsx";
+import { toCelsius, toKMH, toMM } from "../assets/unitDropdownFunctions.js";
 
 // API IMPORT
 import { FetchAtlanta } from "../API/api.js";
@@ -91,10 +92,10 @@ function Home() {
         <MainCard value={data}/>
         {/* CITY STATE WEATHER DETAILS */}
         <div className="flex justify-between my-1 row-start-8 row-end-10 col-start-2 col-end-10 mr-32 mb-6">
-          <SmallCard title={"Feels Like"} value={`${data?.apparentTemp.toFixed(0)}°`} />
+          <SmallCard title={"Feels Like"} value={isFahrenheit ? `${toCelsius(data?.apparentTemp)}°`: `${data?.apparentTemp.toFixed(0)}°`} />
           <SmallCard title={"Humidity"} value={`${data?.humidity.toFixed(0)}%`} />
-          <SmallCard title={"Wind"} value={`${data?.wind.toFixed(0)} ${isMPH ? 'km/h' : 'mph'}`} />
-          <SmallCard title={"Precipitation"} value={`${data?.precipitation.toFixed(0)} ${isInches ? 'mm' : 'in'}`} />
+          <SmallCard title={"Wind"} value={`${isMPH ? toKMH(data?.wind) : data?.wind.toFixed(0)} ${isMPH ? 'km/h' : 'mph'}`} />
+          <SmallCard title={"Precipitation"} value={`${isInches ? toMM(data?.precipitation) : data?.precipitation.toFixed(0)} ${isInches ? 'mm' : 'in'}`} />
         </div>
         {/* DAILY FORECAST */}
         <DailyForecastBlock data={data} />
